@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		44190B692B0651A0004A5417 /* AddRecipeSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44190B682B0651A0004A5417 /* AddRecipeSheetView.swift */; };
 		442D98F42B03827200A8CC5D /* PizzaPastaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442D98F32B03827200A8CC5D /* PizzaPastaApp.swift */; };
 		442D98F82B03827300A8CC5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 442D98F72B03827300A8CC5D /* Assets.xcassets */; };
 		442D98FB2B03827300A8CC5D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 442D98FA2B03827300A8CC5D /* Preview Assets.xcassets */; };
@@ -50,8 +49,18 @@
 		442D99542B03BAFE00A8CC5D /* FirestoreUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442D99532B03BAFE00A8CC5D /* FirestoreUser.swift */; };
 		442D99572B03BEA800A8CC5D /* FirestoreUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442D99562B03BEA800A8CC5D /* FirestoreUserViewModel.swift */; };
 		442D995A2B03C29A00A8CC5D /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442D99592B03C29A00A8CC5D /* FirebaseManager.swift */; };
+		4433FC582B0E0AD400E2FEEB /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4433FC572B0E0AD400E2FEEB /* MenuButton.swift */; };
+		443784E62B0CB287005BAA41 /* RecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443784E52B0CB287005BAA41 /* RecipeViewModel.swift */; };
+		443784EC2B0CE183005BAA41 /* CategoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443784EB2B0CE183005BAA41 /* CategoryListViewModel.swift */; };
+		443784EE2B0CEA0C005BAA41 /* RecipeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443784ED2B0CEA0C005BAA41 /* RecipeDetailView.swift */; };
+		443784F22B0D0032005BAA41 /* RecipeForCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443784F12B0D0032005BAA41 /* RecipeForCategoryView.swift */; };
+		443784F42B0D2F14005BAA41 /* PizzaSizeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443784F32B0D2F14005BAA41 /* PizzaSizeEnum.swift */; };
+		443784F62B0D2F27005BAA41 /* SaladSizeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443784F52B0D2F27005BAA41 /* SaladSizeEnum.swift */; };
+		443784F82B0D37C3005BAA41 /* SizeButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443784F72B0D37C3005BAA41 /* SizeButtons.swift */; };
 		443E98822B07928E00B72EC6 /* CategoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443E98812B07928E00B72EC6 /* CategoryButton.swift */; };
 		443E98862B079AAB00B72EC6 /* AddRecipeSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443E98852B079AAB00B72EC6 /* AddRecipeSheet.swift */; };
+		44C927272B0B8D4B00031B84 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C927262B0B8D4B00031B84 /* Recipe.swift */; };
+		44C927292B0B8FC600031B84 /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C927282B0B8FC600031B84 /* Step.swift */; };
 		44E529A32B04C77300E7DAD2 /* UserRoleEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E529A22B04C77300E7DAD2 /* UserRoleEnum.swift */; };
 		44E529A52B04EE0B00E7DAD2 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E529A42B04EE0B00E7DAD2 /* HomeView.swift */; };
 		44E529A72B04EE4D00E7DAD2 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E529A62B04EE4D00E7DAD2 /* HomeViewModel.swift */; };
@@ -61,7 +70,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		44190B682B0651A0004A5417 /* AddRecipeSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeSheetView.swift; sourceTree = "<group>"; };
 		442D98F02B03827200A8CC5D /* PizzaPasta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PizzaPasta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		442D98F32B03827200A8CC5D /* PizzaPastaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaPastaApp.swift; sourceTree = "<group>"; };
 		442D98F72B03827300A8CC5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -73,8 +81,18 @@
 		442D99532B03BAFE00A8CC5D /* FirestoreUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreUser.swift; sourceTree = "<group>"; };
 		442D99562B03BEA800A8CC5D /* FirestoreUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreUserViewModel.swift; sourceTree = "<group>"; };
 		442D99592B03C29A00A8CC5D /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		4433FC572B0E0AD400E2FEEB /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
+		443784E52B0CB287005BAA41 /* RecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewModel.swift; sourceTree = "<group>"; };
+		443784EB2B0CE183005BAA41 /* CategoryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewModel.swift; sourceTree = "<group>"; };
+		443784ED2B0CEA0C005BAA41 /* RecipeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailView.swift; sourceTree = "<group>"; };
+		443784F12B0D0032005BAA41 /* RecipeForCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeForCategoryView.swift; sourceTree = "<group>"; };
+		443784F32B0D2F14005BAA41 /* PizzaSizeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaSizeEnum.swift; sourceTree = "<group>"; };
+		443784F52B0D2F27005BAA41 /* SaladSizeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaladSizeEnum.swift; sourceTree = "<group>"; };
+		443784F72B0D37C3005BAA41 /* SizeButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeButtons.swift; sourceTree = "<group>"; };
 		443E98812B07928E00B72EC6 /* CategoryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryButton.swift; sourceTree = "<group>"; };
 		443E98852B079AAB00B72EC6 /* AddRecipeSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeSheet.swift; sourceTree = "<group>"; };
+		44C927262B0B8D4B00031B84 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		44C927282B0B8FC600031B84 /* Step.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
 		44E529A22B04C77300E7DAD2 /* UserRoleEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRoleEnum.swift; sourceTree = "<group>"; };
 		44E529A42B04EE0B00E7DAD2 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		44E529A62B04EE4D00E7DAD2 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -145,6 +163,7 @@
 		442D98F22B03827200A8CC5D /* PizzaPasta */ = {
 			isa = PBXGroup;
 			children = (
+				4433FC562B0E0ABF00E2FEEB /* Components */,
 				442D98F32B03827200A8CC5D /* PizzaPastaApp.swift */,
 				44E529A12B04C75800E7DAD2 /* Enum */,
 				442D990E2B03A34F00A8CC5D /* GoogleService-Info.plist */,
@@ -173,6 +192,8 @@
 				442D990D2B0385D100A8CC5D /* AuthenticationViews */,
 				442D99022B03853E00A8CC5D /* Subviews */,
 				44E529A42B04EE0B00E7DAD2 /* HomeView.swift */,
+				443784ED2B0CEA0C005BAA41 /* RecipeDetailView.swift */,
+				443784F12B0D0032005BAA41 /* RecipeForCategoryView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -182,9 +203,9 @@
 			children = (
 				44E529AA2B05105800E7DAD2 /* FoodListView.swift */,
 				44E529AC2B05120600E7DAD2 /* CustomButton.swift */,
-				44190B682B0651A0004A5417 /* AddRecipeSheetView.swift */,
 				443E98812B07928E00B72EC6 /* CategoryButton.swift */,
 				443E98852B079AAB00B72EC6 /* AddRecipeSheet.swift */,
+				443784F72B0D37C3005BAA41 /* SizeButtons.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -242,6 +263,8 @@
 			isa = PBXGroup;
 			children = (
 				442D99532B03BAFE00A8CC5D /* FirestoreUser.swift */,
+				44C927262B0B8D4B00031B84 /* Recipe.swift */,
+				44C927282B0B8FC600031B84 /* Step.swift */,
 			);
 			path = Firestore;
 			sourceTree = "<group>";
@@ -251,6 +274,8 @@
 			children = (
 				442D990B2B0385CB00A8CC5D /* AuthenticationViewModel.swift */,
 				442D99562B03BEA800A8CC5D /* FirestoreUserViewModel.swift */,
+				443784E52B0CB287005BAA41 /* RecipeViewModel.swift */,
+				443784EB2B0CE183005BAA41 /* CategoryListViewModel.swift */,
 			);
 			path = UserViewModel;
 			sourceTree = "<group>";
@@ -263,11 +288,21 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		4433FC562B0E0ABF00E2FEEB /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				4433FC572B0E0AD400E2FEEB /* MenuButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		44E529A12B04C75800E7DAD2 /* Enum */ = {
 			isa = PBXGroup;
 			children = (
 				44E529A22B04C77300E7DAD2 /* UserRoleEnum.swift */,
 				44E529A82B05039400E7DAD2 /* MenuIconEnum.swift */,
+				443784F32B0D2F14005BAA41 /* PizzaSizeEnum.swift */,
+				443784F52B0D2F27005BAA41 /* SaladSizeEnum.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -385,16 +420,25 @@
 				44E529A52B04EE0B00E7DAD2 /* HomeView.swift in Sources */,
 				442D99082B03859B00A8CC5D /* RegisterView.swift in Sources */,
 				442D99542B03BAFE00A8CC5D /* FirestoreUser.swift in Sources */,
+				44C927272B0B8D4B00031B84 /* Recipe.swift in Sources */,
 				44E529A72B04EE4D00E7DAD2 /* HomeViewModel.swift in Sources */,
+				443784EE2B0CEA0C005BAA41 /* RecipeDetailView.swift in Sources */,
 				443E98822B07928E00B72EC6 /* CategoryButton.swift in Sources */,
 				44E529A92B05039400E7DAD2 /* MenuIconEnum.swift in Sources */,
 				442D995A2B03C29A00A8CC5D /* FirebaseManager.swift in Sources */,
 				443E98862B079AAB00B72EC6 /* AddRecipeSheet.swift in Sources */,
-				44190B692B0651A0004A5417 /* AddRecipeSheetView.swift in Sources */,
+				44C927292B0B8FC600031B84 /* Step.swift in Sources */,
+				443784E62B0CB287005BAA41 /* RecipeViewModel.swift in Sources */,
+				443784F42B0D2F14005BAA41 /* PizzaSizeEnum.swift in Sources */,
 				44E529A32B04C77300E7DAD2 /* UserRoleEnum.swift in Sources */,
 				442D990C2B0385CB00A8CC5D /* AuthenticationViewModel.swift in Sources */,
+				443784EC2B0CE183005BAA41 /* CategoryListViewModel.swift in Sources */,
+				443784F62B0D2F27005BAA41 /* SaladSizeEnum.swift in Sources */,
 				442D990A2B0385AB00A8CC5D /* LoginView.swift in Sources */,
 				442D98F42B03827200A8CC5D /* PizzaPastaApp.swift in Sources */,
+				443784F22B0D0032005BAA41 /* RecipeForCategoryView.swift in Sources */,
+				4433FC582B0E0AD400E2FEEB /* MenuButton.swift in Sources */,
+				443784F82B0D37C3005BAA41 /* SizeButtons.swift in Sources */,
 				442D99572B03BEA800A8CC5D /* FirestoreUserViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
