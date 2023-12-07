@@ -13,18 +13,20 @@ struct AddRecipeSheet: View {
     @EnvironmentObject var recipeViewModel: RecipeViewModel
     
     @Binding var selectetCategorie: String
+    
     @State var recipteTitle = ""
-    @State var stepTitle = ""
     @State var showAddStep = false
-    @State var recipeDescription = ""
-    @State var recipeImage = ""
+    @State var ingredient = "Teig"
     @State var stepText = ""
     @State var steps = 1
+    @State var value: Double = 1.0
+    @State var unit = "Gramm"
     
+    @State var ingredients: [Ingredient] = []
     @State var stepsList:[Step] = []
     
     var stepTest: String {
-        return "Schritt \(steps) Titel"
+        return "\(steps). Zutat"
     }
 
     var body: some View {
@@ -63,35 +65,63 @@ struct AddRecipeSheet: View {
                         TextField("Titel", text: $recipteTitle)
                     }
                     
-                    Section("Schritt hinzufügen"){
+                    Section("Zutat hinzufügen"){
                         HStack{
-                            TextField(stepTest, text: $stepTitle)
+                            
+                            Text("\(stepTest)")
+                            
+                            Spacer()
                             
                             Button(action: {
                                 showAddStep = true
+                                
+                                if recipeViewModel.ingredient.count == 0{
+                                    recipeViewModel.fetchIngredient(category: selectetCategorie)
+                                }
+                                
                             }, label: {
                                 Image(systemName: "plus")
                             })
-                            
-                            
                         }
                     }
                     
                     if showAddStep{
                         Section{
-                            TextField("Beschreibung", text: $recipeDescription)
-                            TextField("Bild hinzufügen", text: $recipeImage)
+                            
+                            Picker("Zutat",selection: $ingredient){
+                                
+                                ForEach(recipeViewModel.ingredient, id: \.id){ ingredient in
+                                    Text(ingredient.name).tag(ingredient.name)
+                                }
+                            }
+                            
+                            VStack {
+                                Text("Menge")
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                HStack{
+                                    Text("1")
+                                    Slider(value: $value, in: 1...100, step: 0.5)
+                                    Text("100")
+                                }
+                                Text("\(value, specifier: "%.1f")")
+                            }
+                            
+                            Picker("Einheit", selection: $unit){
+                                ForEach(UnitEnum.allCases, id: \.self){ unit in
+                                    Text(unit.unit).tag(unit.unit)
+                                }
+                            }
                             
                             Button(action: {
                                 
-                                let step = Step(id: UUID().uuidString, step: steps, stepTitle: stepTitle, description: recipeDescription)
+                                let step = Step(id: UUID().uuidString, step: steps, ingredient: ingredient, unit: unit, value: value)
                                 stepsList.append(step)
+                                
                                 
                                 showAddStep = false
                                 steps += 1
-                                stepTitle = ""
-                                recipeDescription = ""
-                                recipeImage = ""
+                                ingredient = "Teig"
+                                unit = "Gramm"
                                 
                             }, label: {
                                 Text("Hinzufügen")
@@ -102,14 +132,17 @@ struct AddRecipeSheet: View {
                     if stepsList.count > 0{
                         Section{
                             
-                            ForEach(stepsList, id: \.id){ step in
-                                Text(step.stepTitle)
+                            ForEach(stepsList, id: \.id){ ingredient in
+                                HStack {
+                                    Text(ingredient.ingredient)
+                                    Spacer()
+                                    Text("\(ingredient.value, specifier: "%.1f")")
+                                    Text(ingredient.unit)
+                                }
                             }
                             
                         }
                     }
-                   
-                    
                 }
                 .cornerRadius(8)
                 .padding(.leading, 7)

@@ -9,7 +9,11 @@ import SwiftUI
 
 struct RecipeDetailView: View {
     
-    @State var recipe = Recipe(id: "", category: "Pizza", title: "Salami", steps: [Step(id: "", step: 1, stepTitle: "", description: "sasfbasfbadfsbasfbaFBASDFB")])
+    @State var recipe = Recipe(id: "", category: "Pizza", title: "Salami", steps: [Step(id: "", step: 1, ingredient: "", unit: "sasfbasfbadfsbasfbaFBASDFB", value: 0.0), Step(id: "", step: 2, ingredient: "", unit: "sasfbasfbadfsbasfbaFBASDFB", value: 0.0), Step(id: "", step: 1, ingredient: "", unit: "sasfbasfbadfsbasfbaFBASDFB", value: 0.0), Step(id: "", step: 1, ingredient: "", unit: "sasfbasfbadfsbasfbaFBASDFB", value: 0.0), Step(id: "", step: 1, ingredient: "", unit: "sasfbasfbadfsbasfbaFBASDFB", value: 0.0), Step(id: "", step: 1, ingredient: "", unit: "sasfbasfbadfsbasfbaFBASDFB", value: 0.0), Step(id: "", step: 1, ingredient: "", unit: "sasfbasfbadfsbasfbaFBASDFB", value: 0.0), Step(id: "", step: 1, ingredient: "", unit: "sasfbasfbadfsbasfbaFBASDFB", value: 0.0)])
+    
+    @State var index = 0
+    
+    @Binding var path: NavigationPath
     
     var body: some View {
         
@@ -40,42 +44,35 @@ struct RecipeDetailView: View {
                 Spacer()
             }
             
-            ScrollView(.horizontal){
-                HStack {
-                    ForEach(recipe.steps, id: \.id){ step in
-                        VStack{
-                            Text("Schritt \(step.step)")
-                                .bold()
-                                .foregroundColor(.white)
-                                .font(.system(size: 45))
-                                .padding(.top, 35)
-                            
-                            Text(step.description)
-                                .bold()
-                                .foregroundColor(.white)
-                                .padding(.top, 20)
-                                .font(.title)
-                            
-                            Spacer()
-                        }
-                        .frame(width: 400, height: 500)
-                        .background(Color.ppRed)
-                        .cornerRadius(20)
+            HStack{
+                VStack{
+                    ForEach(0 ..< 8){ i in
+                        
+                        StepComponent(step: "\(self.recipe.steps[i].step)", icon: "fork.knife", ingredient: "Hähnchenbrustfilet", value: "50", unit: "Stk")
                     }
-                    
-//                    AsyncImage(url: URL(string: "https://firebasestorage.googleapis.com/v0/b/pizzapasta-e305a.appspot.com/o/salami.jpg?alt=media&token=e9042ca5-e646-4bfa-9d9f-37505f021e19"),
-//                        content: { image in
-//                        image.image?.resizable().frame(width: 500, height: 500).padding(.leading, 35)
-//                    })
-                    
-                    Image("salami")
-                        .resizable()
-                        .frame(width: 500, height: 500)
-                        .padding(.leading, 35)
+                    Spacer()
                 }
+                .padding(.top, 30)
+                .padding(.horizontal, 30)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                
+                if recipe.steps.count > 8{
+                    VStack{
+                        ForEach(8 ..< recipe.steps.count){ i in
+                            StepComponent(step: "\(i + 1)", icon: "fork.knife", ingredient: "Hähnchenbrustfilet", value: "50", unit: "Stk")
+                        }
+                        Spacer()
+                    }
+                    .padding(.top, 30)
+                    .padding(.horizontal, 30)
+                }
+                
             }
-            .padding(.leading, 50)
-            .padding(.top, 50)
+            .frame(maxWidth: .infinity)
+            .frame(maxHeight: .infinity)
+            .background(Color.ppYellow)
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .padding(.horizontal, 50)
             
             Spacer()
         }
@@ -85,5 +82,5 @@ struct RecipeDetailView: View {
 }
 
 #Preview {
-    RecipeDetailView()
+    RecipeDetailView(path: .constant(NavigationPath()))
 }

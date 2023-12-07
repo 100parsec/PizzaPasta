@@ -9,7 +9,8 @@ import SwiftUI
 
 struct LoginView: View {
     
-    @StateObject private var authenticationViewModel = AuthenticationViewModel()
+    //@StateObject private var authenticationViewModel = AuthenticationViewModel()
+    @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
     
     @State private var username = ""
     @State private var password = ""

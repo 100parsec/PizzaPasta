@@ -10,15 +10,19 @@ import SwiftUI
 struct CategoryButton: View {
     
     @Binding var btnColor: Color
+    @Binding var selectetCategorie: String
     
     var category: String
     var menuIcon: MenuIconEnum
     var recipeViewModel: RecipeViewModel
-    let function: () -> Void
+    let resetButtonColor: () -> Void
+    let resetPath: () -> Void
     
     var body: some View {
         Button(action: {
-            function()
+            selectetCategorie = category
+            resetButtonColor()
+            resetPath()
             btnColor = .ppYellow
             recipeViewModel.fetchRecipes(category: category)
         }, label: {
@@ -35,10 +39,6 @@ struct CategoryButton: View {
             .font(.title)
             .foregroundColor(.white)
             .padding(.bottom, 20)
-    }
-    
-    private func resetButtonColor(){
-        btnColor = .ppRed
     }
 }
 

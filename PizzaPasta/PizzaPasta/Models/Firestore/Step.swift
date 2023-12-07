@@ -9,8 +9,11 @@ import Foundation
 
 struct Step: Codable{
     
+    // ingredient muss vom typ ingredient sein
+    
     var id: String
     var step: Int
-    var stepTitle: String
-    var description: String
+    var ingredient: String
+    var unit: String
+    var value: Double
 }

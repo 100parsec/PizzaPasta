@@ -20,13 +20,13 @@ struct PizzaPastaApp: App {
     
     var body: some Scene {
         WindowGroup {
-            HomeView()
-//            if authenticationViewModel.isUserLoggedIn{
-//                HomeView()
-//                    .environmentObject(authenticationViewModel)
-//            } else {
-//                LoginView()
-//            }
+            if authenticationViewModel.isUserLoggedIn{
+                HomeView()
+                    .environmentObject(authenticationViewModel)
+            } else {
+                LoginView()
+                    .environmentObject(authenticationViewModel)
+            }
         }
     }
 }
