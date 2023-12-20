@@ -52,7 +52,6 @@ class FirebaseRepo{
     
     
     func login(username: String, password: String) -> String?{
-        
         var uid: String? = nil
         
         auth.signIn(withEmail: username, password: password){ authResult, error in

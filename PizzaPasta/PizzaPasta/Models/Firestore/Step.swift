@@ -13,7 +13,7 @@ struct Step: Codable{
     
     var id: String
     var step: Int
-    var ingredient: String
+    var ingredient: Ingredient
     var unit: String
     var value: Double
 }

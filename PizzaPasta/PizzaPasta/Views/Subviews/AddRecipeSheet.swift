@@ -22,6 +22,16 @@ struct AddRecipeSheet: View {
     @State var value: Double = 1.0
     @State var unit = "Gramm"
     
+    let pizzaSizes = ["26", "32", "40", "50"]
+    @State var pizzaSizeIndex = 0
+    
+    @State var pizzaRecipes: [Recipe] = []
+    
+    @State var stepList26: [Step] = []
+    @State var stepList32: [Step] = []
+    @State var stepList40: [Step] = []
+    @State var stepList50: [Step] = []
+    
     @State var ingredients: [Ingredient] = []
     @State var stepsList:[Step] = []
     
@@ -86,7 +96,7 @@ struct AddRecipeSheet: View {
                     }
                     
                     if showAddStep{
-                        Section{
+                        Section("Zutaten Einheit für die \(pizzaSizes[pizzaSizeIndex])er"){
                             
                             Picker("Zutat",selection: $ingredient){
                                 
@@ -113,15 +123,44 @@ struct AddRecipeSheet: View {
                             }
                             
                             Button(action: {
+                                //TODO Icons einbauen
+                                if selectetCategorie == "Pizza"{
+                                    if pizzaSizeIndex < 3{
+                                        pizzaSizeIndex += 1
+                                        
+                                        if pizzaSizeIndex == 0{
+                                            let step = Step(id: UUID().uuidString, step: steps, ingredient: Ingredient(id: UUID().uuidString, category: self.selectetCategorie, name: self.ingredient, icon: "fork.knife"), unit: unit, value: value)
+                                            stepList26.append(step)
+                                        } else if pizzaSizeIndex == 1{
+                                            let step = Step(id: UUID().uuidString, step: steps, ingredient: Ingredient(id: UUID().uuidString, category: self.selectetCategorie, name: self.ingredient, icon: "fork.knife"), unit: unit, value: value)
+                                            stepList32.append(step)
+                                        } else if pizzaSizeIndex == 2{
+                                            let step = Step(id: UUID().uuidString, step: steps, ingredient: Ingredient(id: UUID().uuidString, category: self.selectetCategorie, name: self.ingredient, icon: "fork.knife"), unit: unit, value: value)
+                                            stepList40.append(step)
+                                        } else if pizzaSizeIndex == 3{
+                                            let step = Step(id: UUID().uuidString, step: steps, ingredient: Ingredient(id: UUID().uuidString, category: self.selectetCategorie, name: self.ingredient, icon: "fork.knife"), unit: unit, value: value)
+                                            stepList50.append(step)
+                                        }
+                                        
+                                    } else{
+                                        pizzaSizeIndex = 0
+                                        showAddStep = false
+                                        steps += 1
+                                        ingredient = "Teig"
+                                        unit = "Gramm"
+                                    }
+                                } else{
+                                    
+                                    let step = Step(id: UUID().uuidString, step: steps, ingredient: Ingredient(id: UUID().uuidString, category: self.selectetCategorie, name: self.ingredient, icon: "fork.knife"), unit: unit, value: value)
+                                    stepsList.append(step)
+                                    
+                                    showAddStep = false
+                                    steps += 1
+                                    ingredient = "Teig"
+                                    unit = "Gramm"
+                                }
                                 
-                                let step = Step(id: UUID().uuidString, step: steps, ingredient: ingredient, unit: unit, value: value)
-                                stepsList.append(step)
                                 
-                                
-                                showAddStep = false
-                                steps += 1
-                                ingredient = "Teig"
-                                unit = "Gramm"
                                 
                             }, label: {
                                 Text("Hinzufügen")
@@ -130,18 +169,11 @@ struct AddRecipeSheet: View {
                     }
                     
                     if stepsList.count > 0{
-                        Section{
-                            
-                            ForEach(stepsList, id: \.id){ ingredient in
-                                HStack {
-                                    Text(ingredient.ingredient)
-                                    Spacer()
-                                    Text("\(ingredient.value, specifier: "%.1f")")
-                                    Text(ingredient.unit)
-                                }
-                            }
-                            
-                        }
+                        StepListComponent(stepList: stepsList)
+                    }
+                    
+                    if stepList26.count > 0{
+                        StepListComponent(stepList: stepList26)
                     }
                 }
                 .cornerRadius(8)

@@ -16,11 +16,6 @@ struct HomeView: View {
     
     @State private var path = NavigationPath()
     
-    let menuIcons = MenuIconEnum.allCases
-    
-    @State var showSheet = false
-    @State var selectetCategorie = "Pizza"
-    
     @State var btnColorPizza: Color = .ppYellow
     @State var btnColorPasta: Color = .ppRed
     @State var btnColorSalad: Color = .ppRed
@@ -33,32 +28,24 @@ struct HomeView: View {
         HStack(spacing: 0) {
             ScrollView{
                 
-                CategoryButton(btnColor: $btnColorPizza, selectetCategorie: $selectetCategorie, category: "Pizza", menuIcon: .pizza, recipeViewModel: recipeViewModel, resetButtonColor: resetButtonColor, resetPath: resetPath)
+                CategoryButton(btnColor: $btnColorPizza, selectetCategorie: $homeviewModel.selectedCategorie, category: StringValues.pizza, menuIcon: .pizza, recipeViewModel: recipeViewModel, resetButtonColor: resetButtonColor, resetPath: resetPath)
                     .padding(.top, 20)
                 
-                CategoryButton(btnColor: $btnColorPasta, selectetCategorie: $selectetCategorie, category: "Pasta", menuIcon: .pasta, recipeViewModel: recipeViewModel, resetButtonColor: resetButtonColor, resetPath: resetPath)
+                CategoryButton(btnColor: $btnColorPasta, selectetCategorie: $homeviewModel.selectedCategorie, category: StringValues.pasta, menuIcon: .pasta, recipeViewModel: recipeViewModel, resetButtonColor: resetButtonColor, resetPath: resetPath)
                 
-                CategoryButton(btnColor: $btnColorSalad, selectetCategorie: $selectetCategorie, category: "Salat", menuIcon: .salad, recipeViewModel: recipeViewModel, resetButtonColor: resetButtonColor, resetPath: resetPath)
+                CategoryButton(btnColor: $btnColorSalad, selectetCategorie: $homeviewModel.selectedCategorie, category: StringValues.salad, menuIcon: .salad, recipeViewModel: recipeViewModel, resetButtonColor: resetButtonColor, resetPath: resetPath)
                 
-                CategoryButton(btnColor: $btnColorBowl, selectetCategorie: $selectetCategorie, category: "Bowl", menuIcon: .bowl, recipeViewModel: recipeViewModel, resetButtonColor: resetButtonColor, resetPath: resetPath)
+                CategoryButton(btnColor: $btnColorBowl, selectetCategorie: $homeviewModel.selectedCategorie, category: StringValues.bowls, menuIcon: .bowl, recipeViewModel: recipeViewModel, resetButtonColor: resetButtonColor, resetPath: resetPath)
                 
-                CategoryButton(btnColor: $btnColorWraps, selectetCategorie: $selectetCategorie, category: "Wraps", menuIcon: .wrap, recipeViewModel: recipeViewModel, resetButtonColor: resetButtonColor, resetPath: resetPath)
+                CategoryButton(btnColor: $btnColorWraps, selectetCategorie: $homeviewModel.selectedCategorie, category: StringValues.wraps, menuIcon: .wrap, recipeViewModel: recipeViewModel, resetButtonColor: resetButtonColor, resetPath: resetPath)
                 
-                CategoryButton(btnColor: $btnColorFingerfood, selectetCategorie: $selectetCategorie, category: "Fingerfood", menuIcon: .fingefood, recipeViewModel: recipeViewModel, resetButtonColor: resetButtonColor, resetPath: resetPath)
+                CategoryButton(btnColor: $btnColorFingerfood, selectetCategorie: $homeviewModel.selectedCategorie, category: StringValues.fingerfood, menuIcon: .fingefood, recipeViewModel: recipeViewModel, resetButtonColor: resetButtonColor, resetPath: resetPath)
                 
-                if authenicationViewModel.user?.role == "Zentrale"{
+                if authenicationViewModel.user?.role == StringValues.roleCentral{
                     
-                    Button(action: {
-                        showSheet = true
-                    }, label: {
-                        
-                        Image("plus")
-                            .resizable()
-                            .frame(width: 150, height: 150)
-                            .background(.ppYellow)
-                            .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-                    })
-                    .padding(.bottom, 20)
+                    SettingsContextMenuComp()
+                        .environmentObject(homeviewModel)
+                    
                 }
             }
             .frame(width: 200)
@@ -66,12 +53,17 @@ struct HomeView: View {
 //            .sheet(isPresented: $showSheet){
 //                AddIngredient()
 //            }
-            .sheet(isPresented: $showSheet){
-                AddRecipeSheet(selectetCategorie: $selectetCategorie)
+            .sheet(isPresented: $homeviewModel.showAddRecipeSheet){
+                AddRecipeSheet(selectetCategorie: $homeviewModel.selectedCategorie)
                     .environmentObject(recipeViewModel)
+            }
+            .sheet(isPresented: $homeviewModel.showAccountSettingsSheet){
+                AccountSettingsSheet()
+                    .environmentObject(authenicationViewModel)
             }
             
             NavigationStack(path: $path) {
+                
                 RecipeForCategoryView(path: $path)
                     .navigationDestination(for: Recipe.self){ recipe in
                         RecipeDetailView(recipe: recipe, path: $path).navigationBarBackButtonHidden(true)
@@ -82,6 +74,8 @@ struct HomeView: View {
         }
         .scrollIndicators(.hidden)
     }
+    
+    
     
     private func resetButtonColor(){
         btnColorPizza = .ppRed
@@ -99,9 +93,4 @@ struct HomeView: View {
 
 #Preview {
     HomeView()
-}
-
-struct MenuTest: Hashable{
-    var menuIcon: MenuIconEnum
-    var category: String
 }

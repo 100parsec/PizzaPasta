@@ -15,6 +15,7 @@ extension AuthenticationViewModel{
         
         do{
             try FirebaseManager.shared.database.collection("users").document(id).setData(from: newUser)
+            print("user created")
             
         }catch let error {
             print("error save user into database: ", error.localizedDescription)

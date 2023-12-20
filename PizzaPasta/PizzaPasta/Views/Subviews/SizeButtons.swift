@@ -9,11 +9,11 @@ import SwiftUI
 
 struct SizeButtons: View {
     
-    @State var category = "Pizza"
+    @State var category = StringValues.pizza
     
     var body: some View {
         
-        if category == "Pizza"{
+        if category == StringValues.pizza{
             HStack {
                 Button(action: {
                     
@@ -76,7 +76,7 @@ struct SizeButtons: View {
                 .padding(.leading, 20)
                 .padding(.top, 15)
             }
-        } else if category == "Salad"{
+        } else if category == StringValues.salad{
             HStack {
                 Button(action: {
                     

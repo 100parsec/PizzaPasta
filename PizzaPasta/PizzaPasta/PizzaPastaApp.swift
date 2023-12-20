@@ -19,7 +19,13 @@ struct PizzaPastaApp: App {
     }
     
     var body: some Scene {
+
+        
         WindowGroup {
+            
+//            RegisterView()
+//                .environmentObject(authenticationViewModel)
+            
             if authenticationViewModel.isUserLoggedIn{
                 HomeView()
                     .environmentObject(authenticationViewModel)

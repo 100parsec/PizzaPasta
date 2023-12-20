@@ -57,10 +57,22 @@
 		443784F42B0D2F14005BAA41 /* PizzaSizeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443784F32B0D2F14005BAA41 /* PizzaSizeEnum.swift */; };
 		443784F62B0D2F27005BAA41 /* SaladSizeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443784F52B0D2F27005BAA41 /* SaladSizeEnum.swift */; };
 		443784F82B0D37C3005BAA41 /* SizeButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443784F72B0D37C3005BAA41 /* SizeButtons.swift */; };
+		4439460D2B2713FC00DC31E7 /* AddressCompRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4439460C2B2713FC00DC31E7 /* AddressCompRepo.swift */; };
+		443946112B27156400DC31E7 /* AddressCompViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443946102B27156400DC31E7 /* AddressCompViewModel.swift */; };
+		443946132B2715CA00DC31E7 /* AdressesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443946122B2715CA00DC31E7 /* AdressesModel.swift */; };
+		443946162B27164300DC31E7 /* ResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443946152B27164300DC31E7 /* ResultModel.swift */; };
+		443946182B27545700DC31E7 /* AddressApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443946172B27545700DC31E7 /* AddressApi.swift */; };
+		443946382B29C86800DC31E7 /* AccountSettingsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443946372B29C86800DC31E7 /* AccountSettingsSheet.swift */; };
+		4439463B2B29CDAB00DC31E7 /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4439463A2B29CDAB00DC31E7 /* AccountModel.swift */; };
+		4439463D2B29CDBA00DC31E7 /* StoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4439463C2B29CDBA00DC31E7 /* StoreModel.swift */; };
+		4439463F2B29CEBD00DC31E7 /* StoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4439463E2B29CEBD00DC31E7 /* StoreViewModel.swift */; };
 		443E98822B07928E00B72EC6 /* CategoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443E98812B07928E00B72EC6 /* CategoryButton.swift */; };
 		443E98862B079AAB00B72EC6 /* AddRecipeSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443E98852B079AAB00B72EC6 /* AddRecipeSheet.swift */; };
 		446AC3EE2B0F95F200CFFD87 /* FirebaseRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446AC3ED2B0F95F200CFFD87 /* FirebaseRepo.swift */; };
 		446AC3F02B0F9A6800CFFD87 /* UserRoleEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446AC3EF2B0F9A6800CFFD87 /* UserRoleEnum.swift */; };
+		449F34CB2B31E01100630052 /* StepListComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449F34CA2B31E01100630052 /* StepListComponent.swift */; };
+		449F34D02B331DBF00630052 /* StringValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449F34CF2B331DBF00630052 /* StringValues.swift */; };
+		449F34D22B331F8800630052 /* SettingsContextMenuComp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449F34D12B331F8800630052 /* SettingsContextMenuComp.swift */; };
 		44C927272B0B8D4B00031B84 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C927262B0B8D4B00031B84 /* Recipe.swift */; };
 		44C927292B0B8FC600031B84 /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C927282B0B8FC600031B84 /* Step.swift */; };
 		44D5EF762B207D3900DB4BC1 /* IngredientEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D5EF752B207D3900DB4BC1 /* IngredientEnum.swift */; };
@@ -95,10 +107,22 @@
 		443784F32B0D2F14005BAA41 /* PizzaSizeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaSizeEnum.swift; sourceTree = "<group>"; };
 		443784F52B0D2F27005BAA41 /* SaladSizeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaladSizeEnum.swift; sourceTree = "<group>"; };
 		443784F72B0D37C3005BAA41 /* SizeButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeButtons.swift; sourceTree = "<group>"; };
+		4439460C2B2713FC00DC31E7 /* AddressCompRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressCompRepo.swift; sourceTree = "<group>"; };
+		443946102B27156400DC31E7 /* AddressCompViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressCompViewModel.swift; sourceTree = "<group>"; };
+		443946122B2715CA00DC31E7 /* AdressesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdressesModel.swift; sourceTree = "<group>"; };
+		443946152B27164300DC31E7 /* ResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultModel.swift; sourceTree = "<group>"; };
+		443946172B27545700DC31E7 /* AddressApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressApi.swift; sourceTree = "<group>"; };
+		443946372B29C86800DC31E7 /* AccountSettingsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsSheet.swift; sourceTree = "<group>"; };
+		4439463A2B29CDAB00DC31E7 /* AccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModel.swift; sourceTree = "<group>"; };
+		4439463C2B29CDBA00DC31E7 /* StoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreModel.swift; sourceTree = "<group>"; };
+		4439463E2B29CEBD00DC31E7 /* StoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewModel.swift; sourceTree = "<group>"; };
 		443E98812B07928E00B72EC6 /* CategoryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryButton.swift; sourceTree = "<group>"; };
 		443E98852B079AAB00B72EC6 /* AddRecipeSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeSheet.swift; sourceTree = "<group>"; };
 		446AC3ED2B0F95F200CFFD87 /* FirebaseRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseRepo.swift; sourceTree = "<group>"; };
 		446AC3EF2B0F9A6800CFFD87 /* UserRoleEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRoleEnum.swift; sourceTree = "<group>"; };
+		449F34CA2B31E01100630052 /* StepListComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepListComponent.swift; sourceTree = "<group>"; };
+		449F34CF2B331DBF00630052 /* StringValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StringValues.swift; path = PizzaPasta/Components/StringValues.swift; sourceTree = SOURCE_ROOT; };
+		449F34D12B331F8800630052 /* SettingsContextMenuComp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsContextMenuComp.swift; sourceTree = "<group>"; };
 		44C927262B0B8D4B00031B84 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		44C927282B0B8FC600031B84 /* Step.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
 		44D5EF752B207D3900DB4BC1 /* IngredientEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientEnum.swift; sourceTree = "<group>"; };
@@ -175,6 +199,8 @@
 		442D98F22B03827200A8CC5D /* PizzaPasta */ = {
 			isa = PBXGroup;
 			children = (
+				449F34D72B332C2C00630052 /* Values1 */,
+				449F34CE2B331D6200630052 /* New Group */,
 				4433FC562B0E0ABF00E2FEEB /* Components */,
 				442D98F32B03827200A8CC5D /* PizzaPastaApp.swift */,
 				44E529A12B04C75800E7DAD2 /* Enum */,
@@ -219,6 +245,8 @@
 				443E98852B079AAB00B72EC6 /* AddRecipeSheet.swift */,
 				443784F72B0D37C3005BAA41 /* SizeButtons.swift */,
 				44D5EF7D2B20AD9500DB4BC1 /* AddIngredient.swift */,
+				443946172B27545700DC31E7 /* AddressApi.swift */,
+				443946372B29C86800DC31E7 /* AccountSettingsSheet.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -227,7 +255,9 @@
 			isa = PBXGroup;
 			children = (
 				442D99552B03BDDE00A8CC5D /* UserViewModel */,
+				4439460F2B27154B00DC31E7 /* ApiViewModels */,
 				44E529A62B04EE4D00E7DAD2 /* HomeViewModel.swift */,
+				4439463E2B29CEBD00DC31E7 /* StoreViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -235,6 +265,7 @@
 		442D99042B03855D00A8CC5D /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				4439460B2B2713A900DC31E7 /* GeoAPI */,
 				442D99062B03857900A8CC5D /* FirestoreRepository */,
 				442D99052B03856B00A8CC5D /* FirebaseRepository */,
 			);
@@ -268,7 +299,10 @@
 		442D99512B03BAE200A8CC5D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4439460E2B2714CD00DC31E7 /* API */,
 				442D99522B03BAEB00A8CC5D /* Firestore */,
+				4439463A2B29CDAB00DC31E7 /* AccountModel.swift */,
+				4439463C2B29CDBA00DC31E7 /* StoreModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -308,8 +342,50 @@
 			children = (
 				4433FC572B0E0AD400E2FEEB /* MenuButton.swift */,
 				44D5EF7F2B20BF3A00DB4BC1 /* StepComponent.swift */,
+				449F34CA2B31E01100630052 /* StepListComponent.swift */,
+				449F34D12B331F8800630052 /* SettingsContextMenuComp.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		4439460B2B2713A900DC31E7 /* GeoAPI */ = {
+			isa = PBXGroup;
+			children = (
+				4439460C2B2713FC00DC31E7 /* AddressCompRepo.swift */,
+			);
+			path = GeoAPI;
+			sourceTree = "<group>";
+		};
+		4439460E2B2714CD00DC31E7 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				443946122B2715CA00DC31E7 /* AdressesModel.swift */,
+				443946152B27164300DC31E7 /* ResultModel.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		4439460F2B27154B00DC31E7 /* ApiViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				443946102B27156400DC31E7 /* AddressCompViewModel.swift */,
+			);
+			path = ApiViewModels;
+			sourceTree = "<group>";
+		};
+		449F34CE2B331D6200630052 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				449F34CF2B331DBF00630052 /* StringValues.swift */,
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		449F34D72B332C2C00630052 /* Values1 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Values1;
 			sourceTree = "<group>";
 		};
 		44E529A12B04C75800E7DAD2 /* Enum */ = {
@@ -435,11 +511,19 @@
 			files = (
 				44D5EF762B207D3900DB4BC1 /* IngredientEnum.swift in Sources */,
 				44D5EF802B20BF3A00DB4BC1 /* StepComponent.swift in Sources */,
+				443946382B29C86800DC31E7 /* AccountSettingsSheet.swift in Sources */,
 				44E529AD2B05120600E7DAD2 /* CustomButton.swift in Sources */,
+				443946182B27545700DC31E7 /* AddressApi.swift in Sources */,
+				449F34CB2B31E01100630052 /* StepListComponent.swift in Sources */,
+				449F34D02B331DBF00630052 /* StringValues.swift in Sources */,
+				4439463D2B29CDBA00DC31E7 /* StoreModel.swift in Sources */,
+				443946112B27156400DC31E7 /* AddressCompViewModel.swift in Sources */,
 				44E529AB2B05105800E7DAD2 /* FoodListView.swift in Sources */,
+				4439463F2B29CEBD00DC31E7 /* StoreViewModel.swift in Sources */,
 				44E529A52B04EE0B00E7DAD2 /* HomeView.swift in Sources */,
 				442D99082B03859B00A8CC5D /* RegisterView.swift in Sources */,
 				442D99542B03BAFE00A8CC5D /* FirestoreUser.swift in Sources */,
+				4439460D2B2713FC00DC31E7 /* AddressCompRepo.swift in Sources */,
 				44C927272B0B8D4B00031B84 /* Recipe.swift in Sources */,
 				44E529A72B04EE4D00E7DAD2 /* HomeViewModel.swift in Sources */,
 				443784EE2B0CEA0C005BAA41 /* RecipeDetailView.swift in Sources */,
@@ -448,8 +532,10 @@
 				44E529A92B05039400E7DAD2 /* MenuIconEnum.swift in Sources */,
 				446AC3EE2B0F95F200CFFD87 /* FirebaseRepo.swift in Sources */,
 				442D995A2B03C29A00A8CC5D /* FirebaseManager.swift in Sources */,
+				4439463B2B29CDAB00DC31E7 /* AccountModel.swift in Sources */,
 				443E98862B079AAB00B72EC6 /* AddRecipeSheet.swift in Sources */,
 				44C927292B0B8FC600031B84 /* Step.swift in Sources */,
+				443946162B27164300DC31E7 /* ResultModel.swift in Sources */,
 				443784E62B0CB287005BAA41 /* RecipeViewModel.swift in Sources */,
 				443784F42B0D2F14005BAA41 /* PizzaSizeEnum.swift in Sources */,
 				442D990C2B0385CB00A8CC5D /* AuthenticationViewModel.swift in Sources */,
@@ -459,10 +545,12 @@
 				442D990A2B0385AB00A8CC5D /* LoginView.swift in Sources */,
 				442D98F42B03827200A8CC5D /* PizzaPastaApp.swift in Sources */,
 				446AC3F02B0F9A6800CFFD87 /* UserRoleEnum.swift in Sources */,
+				449F34D22B331F8800630052 /* SettingsContextMenuComp.swift in Sources */,
 				443784F22B0D0032005BAA41 /* RecipeForCategoryView.swift in Sources */,
 				44D5EF7E2B20AD9500DB4BC1 /* AddIngredient.swift in Sources */,
 				4433FC582B0E0AD400E2FEEB /* MenuButton.swift in Sources */,
 				443784F82B0D37C3005BAA41 /* SizeButtons.swift in Sources */,
+				443946132B2715CA00DC31E7 /* AdressesModel.swift in Sources */,
 				442D99572B03BEA800A8CC5D /* FirestoreUserViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

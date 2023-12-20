@@ -14,15 +14,39 @@ struct StepComponent: View {
     let ingredient: String
     let value: String
     let unit: String
+
+    
+    var formattedUnit: String{
+        if unit == "Gramm"{
+            return "g"
+        } else{
+            return "Stk"
+        }
+    }
+    
+    var formattedValue: String{
+        
+        let parts = value.components(separatedBy: ".")
+        
+        if parts.count == 2, let decimalPart = parts.last, decimalPart.allSatisfy({ $0 == "0" }) {
+            
+            let integerValue = parts.first ?? ""
+            return integerValue
+            
+        } else {
+            
+            return value
+        }
+    }
     
     var body: some View {
         HStack{
             VStack{
                 Text(step)
                     .bold()
-                    .font(.title2)
+                    .font(.title3)
             }
-            .frame(width: 60, height: 60)
+            .frame(width: 50, height: 60)
             .background(Color.ppRed)
             .foregroundColor(.white)
             .clipShape(RoundedRectangle(cornerRadius: 10))
@@ -30,7 +54,7 @@ struct StepComponent: View {
             VStack{
                 Image(systemName: icon)
             }
-            .frame(width: 60, height: 60)
+            .frame(width: 50, height: 60)
             .background(Color.ppRed)
             .foregroundColor(.white)
             .clipShape(RoundedRectangle(cornerRadius: 10))
@@ -38,21 +62,21 @@ struct StepComponent: View {
             VStack{
                 Text(ingredient)
                     .bold()
-                    .font(.title2)
+                    .font(.title3)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading)
             }
-            .frame(width: 230, height: 60)
+            .frame(width: 220, height: 60)
             .background(Color.ppRed)
             .foregroundColor(.white)
             .clipShape(RoundedRectangle(cornerRadius: 10))
             
             VStack{
-                Text("\(value) \(unit)")
+                Text("\(formattedValue) \(formattedUnit)")
                     .bold()
-                    .font(.title2)
+                    .font(.title3)
             }
-            .frame(width: 90, height: 60)
+            .frame(width: 80, height: 60)
             .background(Color.ppRed)
             .foregroundColor(.white)
             .clipShape(RoundedRectangle(cornerRadius: 10))

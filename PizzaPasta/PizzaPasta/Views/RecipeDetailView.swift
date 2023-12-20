@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RecipeDetailView: View {
     
-    @State var recipe = Recipe(id: "", category: "Pizza", title: "Salami", steps: [Step(id: "", step: 1, ingredient: "", unit: "sasfbasfbadfsbasfbaFBASDFB", value: 0.0), Step(id: "", step: 2, ingredient: "", unit: "sasfbasfbadfsbasfbaFBASDFB", value: 0.0), Step(id: "", step: 1, ingredient: "", unit: "sasfbasfbadfsbasfbaFBASDFB", value: 0.0), Step(id: "", step: 1, ingredient: "", unit: "sasfbasfbadfsbasfbaFBASDFB", value: 0.0), Step(id: "", step: 1, ingredient: "", unit: "sasfbasfbadfsbasfbaFBASDFB", value: 0.0), Step(id: "", step: 1, ingredient: "", unit: "sasfbasfbadfsbasfbaFBASDFB", value: 0.0), Step(id: "", step: 1, ingredient: "", unit: "sasfbasfbadfsbasfbaFBASDFB", value: 0.0), Step(id: "", step: 1, ingredient: "", unit: "sasfbasfbadfsbasfbaFBASDFB", value: 0.0)])
+    @State var recipe = Recipe(id: "", category: "", title: "", steps: [Step(id: "", step: 1, ingredient: Ingredient(id: "", category: "", name: "", icon: ""), unit: "", value: 0.0)])
     
     @State var index = 0
     
@@ -19,15 +19,15 @@ struct RecipeDetailView: View {
         
         VStack{
             HStack{
-                if recipe.category == "Pizza"{
-                    SizeButtons(category: "Pizza")
-                } else if recipe.category == "Salad"{
-                    SizeButtons(category: "Salad")
+                if recipe.category == StringValues.pizza{
+                    SizeButtons(category: StringValues.pizza)
+                } else if recipe.category == StringValues.salad{
+                    SizeButtons(category: StringValues.salad)
                 }
                 
                 Spacer()
                 
-                Image("PP_Logo")
+                Image(StringValues.ppLogo)
                     .resizable()
                     .frame(width: 150, height: 80)
                     .padding(.trailing, 50)
@@ -45,26 +45,46 @@ struct RecipeDetailView: View {
             }
             
             HStack{
-                VStack{
-                    ForEach(0 ..< 8){ i in
-                        
-                        StepComponent(step: "\(self.recipe.steps[i].step)", icon: "fork.knife", ingredient: "Hähnchenbrustfilet", value: "50", unit: "Stk")
-                    }
-                    Spacer()
-                }
-                .padding(.top, 30)
-                .padding(.horizontal, 30)
-                .frame(maxWidth: .infinity, alignment: .leading)
+                
                 
                 if recipe.steps.count > 8{
                     VStack{
-                        ForEach(8 ..< recipe.steps.count){ i in
-                            StepComponent(step: "\(i + 1)", icon: "fork.knife", ingredient: "Hähnchenbrustfilet", value: "50", unit: "Stk")
+                        HStack{
+                            VStack {
+                                ForEach(0 ..< 8){ i in
+                                    StepComponent(step: "\(recipe.steps[i].step)", icon: "fork.knife", ingredient: recipe.steps[i].ingredient.name, value: "\(recipe.steps[i].value)", unit: recipe.steps[i].unit)
+                                }
+                                
+                                Spacer()
+                            }
+                            .padding(.top, 15)
+                            .padding(.horizontal, 15)
+                            
+                            Spacer()
+                            
+                            VStack {
+                                ForEach(8 ..< recipe.steps.count){ i in
+                                    StepComponent(step: "\(recipe.steps[i].step)", icon: "fork.knife", ingredient: recipe.steps[i].ingredient.name, value: "\(recipe.steps[i].value)", unit: recipe.steps[i].unit)
+                                }
+                                
+                                Spacer()
+                            }
+                            .padding(.top, 15)
+                            .padding(.horizontal, 15)
+                        }
+                    }
+                    
+                } else{
+                    VStack{
+                        ForEach(recipe.steps, id: \.id){ i in
+                            
+                            StepComponent(step: "\(i.step)", icon: "fork.knife", ingredient: i.ingredient.name, value: "\(i.value)", unit: i.unit)
                         }
                         Spacer()
                     }
                     .padding(.top, 30)
                     .padding(.horizontal, 30)
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 
             }
