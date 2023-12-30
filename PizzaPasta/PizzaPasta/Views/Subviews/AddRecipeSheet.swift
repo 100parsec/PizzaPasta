@@ -124,41 +124,51 @@ struct AddRecipeSheet: View {
                             
                             Button(action: {
                                 //TODO Icons einbauen
-                                if selectetCategorie == "Pizza"{
-                                    if pizzaSizeIndex < 3{
-                                        pizzaSizeIndex += 1
-                                        
-                                        if pizzaSizeIndex == 0{
-                                            let step = Step(id: UUID().uuidString, step: steps, ingredient: Ingredient(id: UUID().uuidString, category: self.selectetCategorie, name: self.ingredient, icon: "fork.knife"), unit: unit, value: value)
-                                            stepList26.append(step)
-                                        } else if pizzaSizeIndex == 1{
-                                            let step = Step(id: UUID().uuidString, step: steps, ingredient: Ingredient(id: UUID().uuidString, category: self.selectetCategorie, name: self.ingredient, icon: "fork.knife"), unit: unit, value: value)
-                                            stepList32.append(step)
-                                        } else if pizzaSizeIndex == 2{
-                                            let step = Step(id: UUID().uuidString, step: steps, ingredient: Ingredient(id: UUID().uuidString, category: self.selectetCategorie, name: self.ingredient, icon: "fork.knife"), unit: unit, value: value)
-                                            stepList40.append(step)
-                                        } else if pizzaSizeIndex == 3{
-                                            let step = Step(id: UUID().uuidString, step: steps, ingredient: Ingredient(id: UUID().uuidString, category: self.selectetCategorie, name: self.ingredient, icon: "fork.knife"), unit: unit, value: value)
-                                            stepList50.append(step)
-                                        }
-                                        
-                                    } else{
-                                        pizzaSizeIndex = 0
-                                        showAddStep = false
-                                        steps += 1
-                                        ingredient = "Teig"
-                                        unit = "Gramm"
-                                    }
-                                } else{
-                                    
-                                    let step = Step(id: UUID().uuidString, step: steps, ingredient: Ingredient(id: UUID().uuidString, category: self.selectetCategorie, name: self.ingredient, icon: "fork.knife"), unit: unit, value: value)
-                                    stepsList.append(step)
-                                    
-                                    showAddStep = false
-                                    steps += 1
-                                    ingredient = "Teig"
-                                    unit = "Gramm"
-                                }
+                                
+                                
+                                let step = Step(id: UUID().uuidString, step: steps, ingredient: Ingredient(id: UUID().uuidString, category: self.selectetCategorie, name: self.ingredient, icon: "fork.knife"), unit: unit, value: value)
+                                stepsList.append(step)
+                                
+                                showAddStep = false
+                                steps += 1
+                                ingredient = "Teig"
+                                unit = "Gramm"
+                                
+//                                if selectetCategorie == "Pizza"{
+//                                    if pizzaSizeIndex < 3{
+//                                        pizzaSizeIndex += 1
+//                                        
+//                                        if pizzaSizeIndex == 0{
+//                                            let step = Step(id: UUID().uuidString, step: steps, ingredient: Ingredient(id: UUID().uuidString, category: self.selectetCategorie, name: self.ingredient, icon: "fork.knife"), unit: unit, value: value)
+//                                            stepList26.append(step)
+//                                        } else if pizzaSizeIndex == 1{
+//                                            let step = Step(id: UUID().uuidString, step: steps, ingredient: Ingredient(id: UUID().uuidString, category: self.selectetCategorie, name: self.ingredient, icon: "fork.knife"), unit: unit, value: value)
+//                                            stepList32.append(step)
+//                                        } else if pizzaSizeIndex == 2{
+//                                            let step = Step(id: UUID().uuidString, step: steps, ingredient: Ingredient(id: UUID().uuidString, category: self.selectetCategorie, name: self.ingredient, icon: "fork.knife"), unit: unit, value: value)
+//                                            stepList40.append(step)
+//                                        } else if pizzaSizeIndex == 3{
+//                                            let step = Step(id: UUID().uuidString, step: steps, ingredient: Ingredient(id: UUID().uuidString, category: self.selectetCategorie, name: self.ingredient, icon: "fork.knife"), unit: unit, value: value)
+//                                            stepList50.append(step)
+//                                        }
+//                                        
+//                                    } else{
+//                                        pizzaSizeIndex = 0
+//                                        showAddStep = false
+//                                        steps += 1
+//                                        ingredient = "Teig"
+//                                        unit = "Gramm"
+//                                    }
+//                                } else{
+//                                    
+//                                    let step = Step(id: UUID().uuidString, step: steps, ingredient: Ingredient(id: UUID().uuidString, category: self.selectetCategorie, name: self.ingredient, icon: "fork.knife"), unit: unit, value: value)
+//                                    stepsList.append(step)
+//                                    
+//                                    showAddStep = false
+//                                    steps += 1
+//                                    ingredient = "Teig"
+//                                    unit = "Gramm"
+//                                }
                                 
                                 
                                 

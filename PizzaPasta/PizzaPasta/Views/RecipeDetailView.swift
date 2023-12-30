@@ -9,9 +9,19 @@ import SwiftUI
 
 struct RecipeDetailView: View {
     
-    @State var recipe = Recipe(id: "", category: "", title: "", steps: [Step(id: "", step: 1, ingredient: Ingredient(id: "", category: "", name: "", icon: ""), unit: "", value: 0.0)])
-    
+    var recipe = Recipe(id: "", category: "", title: "", steps: [Step(id: "", step: 1, ingredient: Ingredient(id: "", category: "", name: "", icon: ""), unit: "", value: 0.0)])
     @State var index = 0
+    
+    let rows = [
+        GridItem(.fixed(60)),
+        GridItem(.fixed(60)),
+        GridItem(.fixed(60)),
+        GridItem(.fixed(60)),
+        GridItem(.fixed(60)),
+        GridItem(.fixed(60)),
+        GridItem(.fixed(60)),
+        GridItem(.fixed(60))
+    ]
     
     @Binding var path: NavigationPath
     
@@ -45,48 +55,13 @@ struct RecipeDetailView: View {
             }
             
             HStack{
-                
-                
-                if recipe.steps.count > 8{
-                    VStack{
-                        HStack{
-                            VStack {
-                                ForEach(0 ..< 8){ i in
-                                    StepComponent(step: "\(recipe.steps[i].step)", icon: "fork.knife", ingredient: recipe.steps[i].ingredient.name, value: "\(recipe.steps[i].value)", unit: recipe.steps[i].unit)
-                                }
-                                
-                                Spacer()
-                            }
+                LazyHGrid(rows: rows, alignment: .top, spacing: -4){
+                    ForEach(recipe.steps, id: \.id){ i in
+                        StepComponent(step: "\(i.step)", icon: "fork.knife", ingredient: i.ingredient.name, value: "\(i.value)", unit: i.unit)
                             .padding(.top, 15)
-                            .padding(.horizontal, 15)
-                            
-                            Spacer()
-                            
-                            VStack {
-                                ForEach(8 ..< recipe.steps.count){ i in
-                                    StepComponent(step: "\(recipe.steps[i].step)", icon: "fork.knife", ingredient: recipe.steps[i].ingredient.name, value: "\(recipe.steps[i].value)", unit: recipe.steps[i].unit)
-                                }
-                                
-                                Spacer()
-                            }
-                            .padding(.top, 15)
-                            .padding(.horizontal, 15)
-                        }
+                            .padding(.leading, 10)
                     }
-                    
-                } else{
-                    VStack{
-                        ForEach(recipe.steps, id: \.id){ i in
-                            
-                            StepComponent(step: "\(i.step)", icon: "fork.knife", ingredient: i.ingredient.name, value: "\(i.value)", unit: i.unit)
-                        }
-                        Spacer()
-                    }
-                    .padding(.top, 30)
-                    .padding(.horizontal, 30)
-                    .frame(maxWidth: .infinity, alignment: .leading)
                 }
-                
             }
             .frame(maxWidth: .infinity)
             .frame(maxHeight: .infinity)

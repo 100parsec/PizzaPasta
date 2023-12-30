@@ -82,6 +82,7 @@ struct StepComponent: View {
             .clipShape(RoundedRectangle(cornerRadius: 10))
             
         }
+        
     }
 }
 

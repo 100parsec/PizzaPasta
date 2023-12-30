@@ -13,33 +13,31 @@ struct HomeView: View {
     @StateObject var homeviewModel = HomeViewModel()
     @StateObject var recipeViewModel = RecipeViewModel()
     
-    
-    @State private var path = NavigationPath()
-    
-    @State var btnColorPizza: Color = .ppYellow
-    @State var btnColorPasta: Color = .ppRed
-    @State var btnColorSalad: Color = .ppRed
-    @State var btnColorBowl: Color = .ppRed
-    @State var btnColorWraps: Color = .ppRed
-    @State var btnColorFingerfood: Color = .ppRed
+    let indexMap: [MenuIconEnum : Int] = [MenuIconEnum.pizza : 0, MenuIconEnum.pasta : 1, MenuIconEnum.salad : 2, MenuIconEnum.bowl : 3, MenuIconEnum.wrap : 4, MenuIconEnum.fingefood : 5]
     
     var body: some View {
       
         HStack(spacing: 0) {
             ScrollView{
                 
-                CategoryButton(btnColor: $btnColorPizza, selectetCategorie: $homeviewModel.selectedCategorie, category: StringValues.pizza, menuIcon: .pizza, recipeViewModel: recipeViewModel, resetButtonColor: resetButtonColor, resetPath: resetPath)
-                    .padding(.top, 20)
+                ForEach(indexMap.sorted(by: {$0.value < $1.value}), id: \.value){ key, value in
+                    
+                    CategoryButton(btnColor: $homeviewModel.colorArr[value], selectetCategorie: $homeviewModel.selectedCategorie, category: key.menuIcons, menuIcon: key, recipeViewModel: recipeViewModel, resetButtonColor: homeviewModel.resetButtonColor, resetPath: homeviewModel.resetPath)
+                        .padding(.top, 20)
+                }
                 
-                CategoryButton(btnColor: $btnColorPasta, selectetCategorie: $homeviewModel.selectedCategorie, category: StringValues.pasta, menuIcon: .pasta, recipeViewModel: recipeViewModel, resetButtonColor: resetButtonColor, resetPath: resetPath)
-                
-                CategoryButton(btnColor: $btnColorSalad, selectetCategorie: $homeviewModel.selectedCategorie, category: StringValues.salad, menuIcon: .salad, recipeViewModel: recipeViewModel, resetButtonColor: resetButtonColor, resetPath: resetPath)
-                
-                CategoryButton(btnColor: $btnColorBowl, selectetCategorie: $homeviewModel.selectedCategorie, category: StringValues.bowls, menuIcon: .bowl, recipeViewModel: recipeViewModel, resetButtonColor: resetButtonColor, resetPath: resetPath)
-                
-                CategoryButton(btnColor: $btnColorWraps, selectetCategorie: $homeviewModel.selectedCategorie, category: StringValues.wraps, menuIcon: .wrap, recipeViewModel: recipeViewModel, resetButtonColor: resetButtonColor, resetPath: resetPath)
-                
-                CategoryButton(btnColor: $btnColorFingerfood, selectetCategorie: $homeviewModel.selectedCategorie, category: StringValues.fingerfood, menuIcon: .fingefood, recipeViewModel: recipeViewModel, resetButtonColor: resetButtonColor, resetPath: resetPath)
+//                CategoryButton(btnColor: $homeviewModel.btnColorPizza, selectetCategorie: $homeviewModel.selectedCategorie, category: StringValues.pizza, menuIcon: .pizza, recipeViewModel: recipeViewModel, resetButtonColor: homeviewModel.resetButtonColor, resetPath: homeviewModel.resetPath)
+//                    .padding(.top, 20)
+//                
+//                CategoryButton(btnColor: $homeviewModel.btnColorPasta, selectetCategorie: $homeviewModel.selectedCategorie, category: StringValues.pasta, menuIcon: .pasta, recipeViewModel: recipeViewModel, resetButtonColor: homeviewModel.resetButtonColor, resetPath: homeviewModel.resetPath)
+//                
+//                CategoryButton(btnColor: $homeviewModel.btnColorSalad, selectetCategorie: $homeviewModel.selectedCategorie, category: StringValues.salad, menuIcon: .salad, recipeViewModel: recipeViewModel, resetButtonColor: homeviewModel.resetButtonColor, resetPath: homeviewModel.resetPath)
+//                
+//                CategoryButton(btnColor: $homeviewModel.btnColorBowl, selectetCategorie: $homeviewModel.selectedCategorie, category: StringValues.bowls, menuIcon: .bowl, recipeViewModel: recipeViewModel, resetButtonColor: homeviewModel.resetButtonColor, resetPath: homeviewModel.resetPath)
+//                
+//                CategoryButton(btnColor: $homeviewModel.btnColorWraps, selectetCategorie: $homeviewModel.selectedCategorie, category: StringValues.wraps, menuIcon: .wrap, recipeViewModel: recipeViewModel, resetButtonColor: homeviewModel.resetButtonColor, resetPath: homeviewModel.resetPath)
+//                
+//                CategoryButton(btnColor: $homeviewModel.btnColorFingerfood, selectetCategorie: $homeviewModel.selectedCategorie, category: StringValues.fingerfood, menuIcon: .fingefood, recipeViewModel: recipeViewModel, resetButtonColor: homeviewModel.resetButtonColor, resetPath: homeviewModel.resetPath)
                 
                 if authenicationViewModel.user?.role == StringValues.roleCentral{
                     
@@ -62,11 +60,11 @@ struct HomeView: View {
                     .environmentObject(authenicationViewModel)
             }
             
-            NavigationStack(path: $path) {
+            NavigationStack(path: $homeviewModel.path) {
                 
-                RecipeForCategoryView(path: $path)
+                RecipeForCategoryView(path: $homeviewModel.path)
                     .navigationDestination(for: Recipe.self){ recipe in
-                        RecipeDetailView(recipe: recipe, path: $path).navigationBarBackButtonHidden(true)
+                        RecipeDetailView(recipe: recipe, path: $homeviewModel.path).navigationBarBackButtonHidden(true)
                     }
                     .environmentObject(recipeViewModel)
             }
@@ -75,20 +73,7 @@ struct HomeView: View {
         .scrollIndicators(.hidden)
     }
     
-    
-    
-    private func resetButtonColor(){
-        btnColorPizza = .ppRed
-        btnColorPasta = .ppRed
-        btnColorSalad = .ppRed
-        btnColorBowl = .ppRed
-        btnColorWraps = .ppRed
-        btnColorFingerfood = .ppRed
-    }
-    
-    private func resetPath(){
-        path = .init()
-    }
+
 }
 
 #Preview {

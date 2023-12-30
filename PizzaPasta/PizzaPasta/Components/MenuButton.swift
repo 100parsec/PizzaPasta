@@ -20,8 +20,7 @@ struct MenuButton: View {
         Button(action: {
             setButtonColor(category)
             fetchRecipes(category)
-//            setButtonColors(button: "pizza")
-//            recipeViewModel.fetchRecipes(category: "Pizza")
+            
         }, label: {
             VStack {
                 Image(icon)

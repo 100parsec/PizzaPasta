@@ -73,6 +73,9 @@
 		449F34CB2B31E01100630052 /* StepListComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449F34CA2B31E01100630052 /* StepListComponent.swift */; };
 		449F34D02B331DBF00630052 /* StringValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449F34CF2B331DBF00630052 /* StringValues.swift */; };
 		449F34D22B331F8800630052 /* SettingsContextMenuComp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449F34D12B331F8800630052 /* SettingsContextMenuComp.swift */; };
+		449F34DB2B34411F00630052 /* RecipeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449F34DA2B34411F00630052 /* RecipeRepository.swift */; };
+		449F34DD2B34413100630052 /* IngredientRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449F34DC2B34413100630052 /* IngredientRepository.swift */; };
+		449F35012B404C3200630052 /* ColorEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449F35002B404C3200630052 /* ColorEnum.swift */; };
 		44C927272B0B8D4B00031B84 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C927262B0B8D4B00031B84 /* Recipe.swift */; };
 		44C927292B0B8FC600031B84 /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C927282B0B8FC600031B84 /* Step.swift */; };
 		44D5EF762B207D3900DB4BC1 /* IngredientEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D5EF752B207D3900DB4BC1 /* IngredientEnum.swift */; };
@@ -121,8 +124,11 @@
 		446AC3ED2B0F95F200CFFD87 /* FirebaseRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseRepo.swift; sourceTree = "<group>"; };
 		446AC3EF2B0F9A6800CFFD87 /* UserRoleEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRoleEnum.swift; sourceTree = "<group>"; };
 		449F34CA2B31E01100630052 /* StepListComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepListComponent.swift; sourceTree = "<group>"; };
-		449F34CF2B331DBF00630052 /* StringValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StringValues.swift; path = PizzaPasta/Components/StringValues.swift; sourceTree = SOURCE_ROOT; };
+		449F34CF2B331DBF00630052 /* StringValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StringValues.swift; path = PizzaPasta/Resources/StringValues.swift; sourceTree = SOURCE_ROOT; };
 		449F34D12B331F8800630052 /* SettingsContextMenuComp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsContextMenuComp.swift; sourceTree = "<group>"; };
+		449F34DA2B34411F00630052 /* RecipeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeRepository.swift; sourceTree = "<group>"; };
+		449F34DC2B34413100630052 /* IngredientRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientRepository.swift; sourceTree = "<group>"; };
+		449F35002B404C3200630052 /* ColorEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorEnum.swift; sourceTree = "<group>"; };
 		44C927262B0B8D4B00031B84 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		44C927282B0B8FC600031B84 /* Step.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
 		44D5EF752B207D3900DB4BC1 /* IngredientEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientEnum.swift; sourceTree = "<group>"; };
@@ -199,8 +205,7 @@
 		442D98F22B03827200A8CC5D /* PizzaPasta */ = {
 			isa = PBXGroup;
 			children = (
-				449F34D72B332C2C00630052 /* Values1 */,
-				449F34CE2B331D6200630052 /* New Group */,
+				449F34D92B33317100630052 /* Resources */,
 				4433FC562B0E0ABF00E2FEEB /* Components */,
 				442D98F32B03827200A8CC5D /* PizzaPastaApp.swift */,
 				44E529A12B04C75800E7DAD2 /* Enum */,
@@ -283,6 +288,8 @@
 		442D99062B03857900A8CC5D /* FirestoreRepository */ = {
 			isa = PBXGroup;
 			children = (
+				449F34DA2B34411F00630052 /* RecipeRepository.swift */,
+				449F34DC2B34413100630052 /* IngredientRepository.swift */,
 			);
 			path = FirestoreRepository;
 			sourceTree = "<group>";
@@ -373,19 +380,12 @@
 			path = ApiViewModels;
 			sourceTree = "<group>";
 		};
-		449F34CE2B331D6200630052 /* New Group */ = {
+		449F34D92B33317100630052 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				449F34CF2B331DBF00630052 /* StringValues.swift */,
 			);
-			path = "New Group";
-			sourceTree = "<group>";
-		};
-		449F34D72B332C2C00630052 /* Values1 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Values1;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		44E529A12B04C75800E7DAD2 /* Enum */ = {
@@ -397,6 +397,7 @@
 				446AC3EF2B0F9A6800CFFD87 /* UserRoleEnum.swift */,
 				44D5EF752B207D3900DB4BC1 /* IngredientEnum.swift */,
 				44D5EF772B20844400DB4BC1 /* UnitEnum.swift */,
+				449F35002B404C3200630052 /* ColorEnum.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -519,11 +520,13 @@
 				4439463D2B29CDBA00DC31E7 /* StoreModel.swift in Sources */,
 				443946112B27156400DC31E7 /* AddressCompViewModel.swift in Sources */,
 				44E529AB2B05105800E7DAD2 /* FoodListView.swift in Sources */,
+				449F35012B404C3200630052 /* ColorEnum.swift in Sources */,
 				4439463F2B29CEBD00DC31E7 /* StoreViewModel.swift in Sources */,
 				44E529A52B04EE0B00E7DAD2 /* HomeView.swift in Sources */,
 				442D99082B03859B00A8CC5D /* RegisterView.swift in Sources */,
 				442D99542B03BAFE00A8CC5D /* FirestoreUser.swift in Sources */,
 				4439460D2B2713FC00DC31E7 /* AddressCompRepo.swift in Sources */,
+				449F34DD2B34413100630052 /* IngredientRepository.swift in Sources */,
 				44C927272B0B8D4B00031B84 /* Recipe.swift in Sources */,
 				44E529A72B04EE4D00E7DAD2 /* HomeViewModel.swift in Sources */,
 				443784EE2B0CEA0C005BAA41 /* RecipeDetailView.swift in Sources */,
@@ -534,6 +537,7 @@
 				442D995A2B03C29A00A8CC5D /* FirebaseManager.swift in Sources */,
 				4439463B2B29CDAB00DC31E7 /* AccountModel.swift in Sources */,
 				443E98862B079AAB00B72EC6 /* AddRecipeSheet.swift in Sources */,
+				449F34DB2B34411F00630052 /* RecipeRepository.swift in Sources */,
 				44C927292B0B8FC600031B84 /* Step.swift in Sources */,
 				443946162B27164300DC31E7 /* ResultModel.swift in Sources */,
 				443784E62B0CB287005BAA41 /* RecipeViewModel.swift in Sources */,
