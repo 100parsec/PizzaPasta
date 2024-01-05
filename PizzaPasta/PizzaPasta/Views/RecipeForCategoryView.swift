@@ -24,9 +24,7 @@ struct RecipeForCategoryView: View {
                         }
                         .listRowBackground(Color.ppRed)
                         .padding(30)
-                    }
-                    
-                    
+                    }  
                 }
             }
     }

@@ -9,23 +9,24 @@ import SwiftUI
 
 struct StepListComponent: View {
     
-    @State var stepList = [Step]()
+    var ingredient: Step
+    
+    init(ingredient: Step){
+        self.ingredient = ingredient
+    }
     
     var body: some View {
         
-        Section{
-            ForEach(self.stepList, id: \.id){ ingredient in
-                HStack {
-                    Text(ingredient.ingredient.name)
-                    Spacer()
-                    Text("\(ingredient.value, specifier: "%.1f")")
-                    Text(ingredient.unit)
-                }
-            }
+        HStack {
+            Text("\(ingredient.step). ")
+            Text(ingredient.ingredient.name)
+            Spacer()
+            Text("\(ingredient.value, specifier: "%.1f")")
+            Text(ingredient.unit)
         }
     }
 }
 
 #Preview {
-    StepListComponent()
+    StepListComponent(ingredient: Step(id: "", step: 1, ingredient: Ingredient(id: "", category: "", name: "", icon: ""), unit: "", value: 1.0))
 }

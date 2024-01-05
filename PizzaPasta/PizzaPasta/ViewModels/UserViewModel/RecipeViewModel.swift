@@ -11,22 +11,29 @@ import FirebaseFirestoreSwift
 
 class RecipeViewModel: ObservableObject{
     
-    let ingredientRepo = IngredientRepository()
-    
-    
-    
     init(){
         fetchRecipes(category: "Pizza")
+        fetchIngredient()
     }
     
     @Published var recipes = [Recipe]()
-    @Published var ingredient = [Ingredient]()
+    @Published var ingredientArr = [Ingredient]()
+    @Published var recipteTitle = ""
+    @Published var showAddStep = false
+    @Published var ingredient = "Teig"
+    @Published var stepText = ""
+    @Published var steps = 1
+    @Published var value: Double = 1.0
+    @Published var unit = "Gramm"
+    @Published var stepsList:[Step] = []
+    @Published var pizzaSizeIndex = 0
+    
     
     private var listener: ListenerRegistration?
     
-    func createRecipe(category: String, title: String, steps: [Step]){
+    func createRecipe(category: String){
         
-        RecipeRepository.createRecipe(category: category, title: title, steps: steps)
+        RecipeRepository.createRecipe(category: category, title: self.recipteTitle, steps: self.stepsList)
         
     }
     
@@ -62,11 +69,15 @@ class RecipeViewModel: ObservableObject{
         IngredientRepository.createIngredient(category: category, name: name, icon: icon)
     }
     
-    func fetchIngredient(category: String){
+    func fetchIngredient(){
         
         IngredientRepository.fetchIngredient{ ingredient in
-            self.ingredient = ingredient
+            self.ingredientArr = ingredient
         }
-
+    }
+    
+    func resetData(){
+        recipteTitle = ""
+        showAddStep = false
     }
 }

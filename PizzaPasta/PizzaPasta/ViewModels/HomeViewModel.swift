@@ -26,6 +26,8 @@ class HomeViewModel: ObservableObject{
     
     @Published var path = NavigationPath()
     
+    let indexMap: [MenuIconEnum : Int] = [MenuIconEnum.pizza : 0, MenuIconEnum.pasta : 1, MenuIconEnum.salad : 2, MenuIconEnum.bowl : 3, MenuIconEnum.wrap : 4, MenuIconEnum.fingefood : 5]
+    
     init(){
         colorArr.append(btnColorPizza)
         colorArr.append(btnColorPasta)
@@ -45,18 +47,10 @@ class HomeViewModel: ObservableObject{
     }
     
     func resetButtonColor(){
-        colorArr[0] = .ppRed
-        colorArr[1] = .ppRed
-        colorArr[2] = .ppRed
-        colorArr[3] = .ppRed
-        colorArr[4] = .ppRed
-        colorArr[5] = .ppRed
-//        self.btnColorPizza = .ppRed
-//        self.btnColorPasta = .ppRed
-//        self.btnColorSalad = .ppRed
-//        self.btnColorBowl = .ppRed
-//        self.btnColorWraps = .ppRed
-//        self.btnColorFingerfood = .ppRed
+        
+        for i in 0...5{
+            colorArr[i] = .ppRed
+        }
     }
     
     func resetPath(){
