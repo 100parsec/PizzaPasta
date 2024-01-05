@@ -24,7 +24,7 @@ struct CategoryButton: View {
             resetButtonColor()
             resetPath()
             btnColor = .ppYellow
-            recipeViewModel.fetchRecipes(category: category.capitalized)
+            recipeViewModel.fetchRecipes()
         }, label: {
             VStack {
                 Image(menuIcon.menuIcons)

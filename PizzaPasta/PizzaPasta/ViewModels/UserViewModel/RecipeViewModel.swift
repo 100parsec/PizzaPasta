@@ -12,7 +12,7 @@ import FirebaseFirestoreSwift
 class RecipeViewModel: ObservableObject{
     
     init(){
-        fetchRecipes(category: "Pizza")
+        fetchRecipes()
         fetchIngredient()
     }
     
@@ -45,9 +45,9 @@ class RecipeViewModel: ObservableObject{
         RecipeRepository.deleteRecipe(with: id)
     }
     
-    func fetchRecipes(category: String){
+    func fetchRecipes(){
         
-        self.listener = FirebaseManager.shared.database.collection("recipes").whereField("category", isEqualTo: category)
+        self.listener = FirebaseManager.shared.database.collection("recipes").whereField("category", isEqualTo: selectedCategory)
             .addSnapshotListener{ querySnapshot, error in
                 if let error{
                     print("error fetching recipes: ", error.localizedDescription)
@@ -55,7 +55,7 @@ class RecipeViewModel: ObservableObject{
                 }
                 
                 guard let documents = querySnapshot?.documents else {
-                    print("error loading \(category) from database")
+                    print("error loading \(self.selectedCategory) from database")
                     return
                 }
                 
