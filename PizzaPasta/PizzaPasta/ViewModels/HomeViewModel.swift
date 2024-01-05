@@ -11,7 +11,6 @@ import SwiftUI
 
 class HomeViewModel: ObservableObject{
     
-    @Published var selectedCategorie = "Pizza"
     @Published var showAddRecipeSheet = false
     @Published var showAccountSettingsSheet = false
     

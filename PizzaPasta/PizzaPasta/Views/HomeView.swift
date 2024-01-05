@@ -20,7 +20,7 @@ struct HomeView: View {
                 
                 ForEach(homeviewModel.indexMap.sorted(by: {$0.value < $1.value}), id: \.value){ key, value in
                     
-                    CategoryButton(btnColor: $homeviewModel.colorArr[value], selectetCategorie: $homeviewModel.selectedCategorie, category: key.menuIcons, menuIcon: key, recipeViewModel: recipeViewModel, resetButtonColor: homeviewModel.resetButtonColor, resetPath: homeviewModel.resetPath)
+                    CategoryButton(btnColor: $homeviewModel.colorArr[value], selectetCategorie: $recipeViewModel.selectedCategory, category: key.menuIcons, menuIcon: key, recipeViewModel: recipeViewModel, resetButtonColor: homeviewModel.resetButtonColor, resetPath: homeviewModel.resetPath)
                         .padding(.top, 20)
                 }
                 
@@ -37,7 +37,7 @@ struct HomeView: View {
 //                AddIngredient()
 //            }
             .sheet(isPresented: $homeviewModel.showAddRecipeSheet){
-                AddRecipeSheet(selectetCategorie: $homeviewModel.selectedCategorie)
+                AddRecipeSheet()
                     .environmentObject(recipeViewModel)
             }
             .sheet(isPresented: $homeviewModel.showAccountSettingsSheet){

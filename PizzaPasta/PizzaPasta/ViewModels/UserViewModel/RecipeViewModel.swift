@@ -27,6 +27,9 @@ class RecipeViewModel: ObservableObject{
     @Published var unit = "Gramm"
     @Published var stepsList:[Step] = []
     @Published var pizzaSizeIndex = 0
+    @Published var selectedCategory = "Pizza"
+    
+    let pizzaSizes = ["26", "32", "40", "50"]
     
     
     private var listener: ListenerRegistration?
@@ -43,9 +46,6 @@ class RecipeViewModel: ObservableObject{
     }
     
     func fetchRecipes(category: String){
-        
-        print("kategorie: ", category)
-        
         
         self.listener = FirebaseManager.shared.database.collection("recipes").whereField("category", isEqualTo: category)
             .addSnapshotListener{ querySnapshot, error in
@@ -79,5 +79,19 @@ class RecipeViewModel: ObservableObject{
     func resetData(){
         recipteTitle = ""
         showAddStep = false
+    }
+    
+    func getPizzaSize() -> String{
+        return pizzaSizes[pizzaSizeIndex]
+    }
+    
+    func getSectionIngredientText() -> String{
+        
+        if self.selectedCategory == "Pizza"{
+            return "Zutaten Einheit für die \(pizzaSizes[pizzaSizeIndex])er"  
+        } else{
+            return ""
+        }
+        
     }
 }

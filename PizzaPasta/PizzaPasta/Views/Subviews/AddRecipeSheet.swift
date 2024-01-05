@@ -12,9 +12,8 @@ struct AddRecipeSheet: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var recipeViewModel: RecipeViewModel
     
-    @Binding var selectetCategorie: String
     
-    let pizzaSizes = ["26", "32", "40", "50"]
+//    let pizzaSizes = ["26", "32", "40", "50"]
     
     var stepCount: String {
         return "\(recipeViewModel.steps). Zutat"
@@ -25,7 +24,7 @@ struct AddRecipeSheet: View {
             
             HStack{
                 
-                Text("\(selectetCategorie) Rezept hinzufügen")
+                Text("\(recipeViewModel.selectedCategory) Rezept hinzufügen")
                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                     .bold()
                     .foregroundColor(.white)
@@ -52,7 +51,7 @@ struct AddRecipeSheet: View {
                 
                 Form {
                     Section("Kategorie & Titel"){
-                        Text(selectetCategorie)
+                        Text(recipeViewModel.selectedCategory)
                         TextField("Titel", text: $recipeViewModel.recipteTitle)
                     }
                     
@@ -73,7 +72,7 @@ struct AddRecipeSheet: View {
                     }
                     
                     if recipeViewModel.showAddStep{
-                        Section("Zutaten Einheit für die \(pizzaSizes[recipeViewModel.pizzaSizeIndex])er"){
+                        Section(recipeViewModel.getSectionIngredientText()){
                             
                             Picker("Zutat",selection: $recipeViewModel.ingredient){
                                 
@@ -102,7 +101,7 @@ struct AddRecipeSheet: View {
                             Button(action: {
                                 //TODO Icons einbauen
                                 
-                                let step = Step(id: UUID().uuidString, step: recipeViewModel.steps, ingredient: Ingredient(id: UUID().uuidString, category: self.selectetCategorie, name: recipeViewModel.ingredient, icon: "fork.knife"), unit: recipeViewModel.unit, value: recipeViewModel.value)
+                                let step = Step(id: UUID().uuidString, step: recipeViewModel.steps, ingredient: Ingredient(id: UUID().uuidString, category: recipeViewModel.selectedCategory, name: recipeViewModel.ingredient, icon: "fork.knife"), unit: recipeViewModel.unit, value: recipeViewModel.value)
                                 recipeViewModel.stepsList.append(step)
                                 
                                 recipeViewModel.showAddStep = false
@@ -151,7 +150,7 @@ struct AddRecipeSheet: View {
                 Spacer()
                 
                 Button(action: {
-                    recipeViewModel.createRecipe(category: selectetCategorie.capitalized)
+                    recipeViewModel.createRecipe(category: recipeViewModel.selectedCategory.capitalized)
                     close()
                     
                 }, label: {
@@ -183,5 +182,5 @@ struct AddRecipeSheet: View {
 }
 
 #Preview {
-    AddRecipeSheet(selectetCategorie: .constant("Pizza"))
+    AddRecipeSheet()
 }
