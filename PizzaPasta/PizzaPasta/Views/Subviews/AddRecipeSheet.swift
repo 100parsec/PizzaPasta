@@ -13,8 +13,6 @@ struct AddRecipeSheet: View {
     @EnvironmentObject var recipeViewModel: RecipeViewModel
     
     
-//    let pizzaSizes = ["26", "32", "40", "50"]
-    
     var stepCount: String {
         return "\(recipeViewModel.steps). Zutat"
     }

@@ -20,7 +20,7 @@ struct CategoryButton: View {
     
     var body: some View {
         Button(action: {
-            selectetCategorie = category
+            selectetCategorie = category.capitalized
             resetButtonColor()
             resetPath()
             btnColor = .ppYellow
