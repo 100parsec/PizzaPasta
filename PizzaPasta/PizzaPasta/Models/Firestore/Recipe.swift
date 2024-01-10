@@ -13,6 +13,7 @@ struct Recipe: Codable {
     var category: String
     var title: String
     var steps: [Step]
+    var size: String?
 }
 
 extension Recipe: Hashable, Equatable {

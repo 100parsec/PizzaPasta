@@ -7,9 +7,7 @@
 
 import Foundation
 
-struct Step: Codable{
-    
-    // ingredient muss vom typ ingredient sein
+struct Step: Codable, Identifiable{
     
     var id: String
     var step: Int

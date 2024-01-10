@@ -13,10 +13,12 @@ struct AddRecipeSheet: View {
     @EnvironmentObject var recipeViewModel: RecipeViewModel
     
     
+    
+    
     var stepCount: String {
         return "\(recipeViewModel.steps). Zutat"
     }
-
+    
     var body: some View {
         VStack {
             
@@ -70,7 +72,63 @@ struct AddRecipeSheet: View {
                     }
                     
                     if recipeViewModel.showAddStep{
-                        Section(recipeViewModel.getSectionIngredientText()){
+                        if recipeViewModel.selectedCategory == "Pizza"{
+                            List{
+                                
+                                Section("26er"){
+                                    SectionAddAllPizzaSizes(size: "26").environmentObject(recipeViewModel)
+                                }
+                                
+                                Section("32er"){
+                                    SectionAddAllPizzaSizes(size: "32").environmentObject(recipeViewModel)
+                                }
+                                
+                                Section("40er"){
+                                    SectionAddAllPizzaSizes(size: "40").environmentObject(recipeViewModel)
+                                }
+                                
+                                Section("50er"){
+                                    SectionAddAllPizzaSizes(size: "50").environmentObject(recipeViewModel)
+                                }
+                                
+                                Section{
+                                    Button(action: {
+                                        //TODO Icons einbauen
+                                        
+                                        var step = Step(id: UUID().uuidString, step: recipeViewModel.steps, ingredient: Ingredient(id: UUID().uuidString, category: recipeViewModel.selectedCategory, name: recipeViewModel.ingredient, icon: "fork.knife"), unit: recipeViewModel.unit, value: recipeViewModel.value)
+                                        
+                                        if recipeViewModel.selectedCategory == "Pizza"{
+                                            step.value = recipeViewModel.value26
+                                            recipeViewModel.stepsList26.append(step)
+                                            
+                                            step.value = recipeViewModel.value32
+                                            recipeViewModel.stepsList32.append(step)
+                                            
+                                            step.value = recipeViewModel.value40
+                                            recipeViewModel.stepsList40.append(step)
+                                            
+                                            step.value = recipeViewModel.value50
+                                            recipeViewModel.stepsList50.append(step)
+                                            
+                                        } else{
+                                            step.value = recipeViewModel.value
+                                            recipeViewModel.stepsList.append(step)
+                                        }
+                                        
+                                        
+                                        
+                                        recipeViewModel.showAddStep = false
+                                        recipeViewModel.steps += 1
+                                        recipeViewModel.ingredient = "Teig"
+                                        recipeViewModel.unit = "Gramm"
+                                        
+                                    }, label: {
+                                        Text("Hinzufügen")
+                                    })
+                                }
+                                
+                            }
+                        }else{
                             
                             Picker("Zutat",selection: $recipeViewModel.ingredient){
                                 
@@ -78,10 +136,7 @@ struct AddRecipeSheet: View {
                                     Text(ingredient.name).tag(ingredient.name)
                                 }
                             }
-                            
-                            VStack {
-                                Text("Menge")
-                                    .frame(maxWidth: .infinity, alignment: .leading)
+                            VStack{
                                 HStack{
                                     Text("1")
                                     Slider(value: $recipeViewModel.value, in: 1...100, step: 0.5)
@@ -90,32 +145,31 @@ struct AddRecipeSheet: View {
                                 Text("\(recipeViewModel.value, specifier: "%.1f")")
                             }
                             
-                            Picker("Einheit", selection: $recipeViewModel.unit){
-                                ForEach(UnitEnum.allCases, id: \.self){ unit in
-                                    Text(unit.unit).tag(unit.unit)
-                                }
+                            Section{
+                                Button(action: {
+                                    //TODO Icons einbauen
+                                    
+                                    var step = Step(id: UUID().uuidString, step: recipeViewModel.steps, ingredient: Ingredient(id: UUID().uuidString, category: recipeViewModel.selectedCategory, name: recipeViewModel.ingredient, icon: "fork.knife"), unit: recipeViewModel.unit, value: recipeViewModel.value)
+                                    
+                                    
+                                    step.value = recipeViewModel.value
+                                    recipeViewModel.stepsList.append(step)
+                                    
+                                    recipeViewModel.showAddStep = false
+                                    recipeViewModel.steps += 1
+                                    recipeViewModel.ingredient = "Teig"
+                                    recipeViewModel.unit = "Gramm"
+                                    
+                                }, label: {
+                                    Text("Hinzufügen")
+                                })
                             }
-                            
-                            Button(action: {
-                                //TODO Icons einbauen
-                                
-                                let step = Step(id: UUID().uuidString, step: recipeViewModel.steps, ingredient: Ingredient(id: UUID().uuidString, category: recipeViewModel.selectedCategory, name: recipeViewModel.ingredient, icon: "fork.knife"), unit: recipeViewModel.unit, value: recipeViewModel.value)
-                                recipeViewModel.stepsList.append(step)
-                                
-                                recipeViewModel.showAddStep = false
-                                recipeViewModel.steps += 1
-                                recipeViewModel.ingredient = "Teig"
-                                recipeViewModel.unit = "Gramm"
-                            
-                            }, label: {
-                                Text("Hinzufügen")
-                            })
                         }
                     }
                     
-                    if recipeViewModel.stepsList.count > 0{
+                    if recipeViewModel.stepsList26.count > 0{
                         VStack{
-                            ForEach(recipeViewModel.stepsList, id: \.id){ ingredient in
+                            ForEach(recipeViewModel.stepsList26, id: \.id){ ingredient in
                                 StepListComponent(ingredient: ingredient)
                             }
                         }
@@ -152,6 +206,7 @@ struct AddRecipeSheet: View {
                     close()
                     
                 }, label: {
+                    
                     Text("Speichern")
                         .font(.callout)
                         .bold()
@@ -160,6 +215,7 @@ struct AddRecipeSheet: View {
                         .frame(width: 150)
                         .background(Color(red: 1.023, green: 0.637, blue: -0.244))
                         .cornerRadius(10)
+                    
                 })
                 .padding(.trailing, 50)
                 .padding(.top, 10)
@@ -168,10 +224,14 @@ struct AddRecipeSheet: View {
             Spacer()
             
         }
+        .sheet(isPresented: $recipeViewModel.showAddPizzaSizeSheet){
+            AddAllPizzaSizesSheet()
+                .environmentObject(recipeViewModel)
+        }
         .background(Color(red: 0.49, green: 0.591, blue: 0.581))
         .interactiveDismissDisabled()
     }
-
+    
     func close() {
         recipeViewModel.resetData()
         dismiss()

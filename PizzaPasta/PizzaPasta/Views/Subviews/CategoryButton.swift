@@ -24,7 +24,14 @@ struct CategoryButton: View {
             resetButtonColor()
             resetPath()
             btnColor = .ppYellow
-            recipeViewModel.fetchRecipes()
+            
+            if selectetCategorie == "Pizza"{
+                recipeViewModel.fetchPizza(size: "26")
+            } else{
+                recipeViewModel.fetchRecipes()
+            }
+            
+            
         }, label: {
             VStack {
                 Image(menuIcon.menuIcons)

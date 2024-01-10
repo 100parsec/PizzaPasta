@@ -68,6 +68,7 @@
 		4439463F2B29CEBD00DC31E7 /* StoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4439463E2B29CEBD00DC31E7 /* StoreViewModel.swift */; };
 		443E98822B07928E00B72EC6 /* CategoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443E98812B07928E00B72EC6 /* CategoryButton.swift */; };
 		443E98862B079AAB00B72EC6 /* AddRecipeSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443E98852B079AAB00B72EC6 /* AddRecipeSheet.swift */; };
+		445C4F892B480CAB00969B49 /* AddAllPizzaSizesSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445C4F882B480CAB00969B49 /* AddAllPizzaSizesSheet.swift */; };
 		446AC3EE2B0F95F200CFFD87 /* FirebaseRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446AC3ED2B0F95F200CFFD87 /* FirebaseRepo.swift */; };
 		446AC3F02B0F9A6800CFFD87 /* UserRoleEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446AC3EF2B0F9A6800CFFD87 /* UserRoleEnum.swift */; };
 		449F34CB2B31E01100630052 /* StepListComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449F34CA2B31E01100630052 /* StepListComponent.swift */; };
@@ -76,6 +77,7 @@
 		449F34DB2B34411F00630052 /* RecipeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449F34DA2B34411F00630052 /* RecipeRepository.swift */; };
 		449F34DD2B34413100630052 /* IngredientRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449F34DC2B34413100630052 /* IngredientRepository.swift */; };
 		449F35012B404C3200630052 /* ColorEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449F35002B404C3200630052 /* ColorEnum.swift */; };
+		44AEB6F52B483BAB006AF58E /* SectionAddAllPizzaSizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AEB6F42B483BAB006AF58E /* SectionAddAllPizzaSizes.swift */; };
 		44C927272B0B8D4B00031B84 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C927262B0B8D4B00031B84 /* Recipe.swift */; };
 		44C927292B0B8FC600031B84 /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C927282B0B8FC600031B84 /* Step.swift */; };
 		44D5EF762B207D3900DB4BC1 /* IngredientEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D5EF752B207D3900DB4BC1 /* IngredientEnum.swift */; };
@@ -121,6 +123,7 @@
 		4439463E2B29CEBD00DC31E7 /* StoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewModel.swift; sourceTree = "<group>"; };
 		443E98812B07928E00B72EC6 /* CategoryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryButton.swift; sourceTree = "<group>"; };
 		443E98852B079AAB00B72EC6 /* AddRecipeSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeSheet.swift; sourceTree = "<group>"; };
+		445C4F882B480CAB00969B49 /* AddAllPizzaSizesSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAllPizzaSizesSheet.swift; sourceTree = "<group>"; };
 		446AC3ED2B0F95F200CFFD87 /* FirebaseRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseRepo.swift; sourceTree = "<group>"; };
 		446AC3EF2B0F9A6800CFFD87 /* UserRoleEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRoleEnum.swift; sourceTree = "<group>"; };
 		449F34CA2B31E01100630052 /* StepListComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepListComponent.swift; sourceTree = "<group>"; };
@@ -129,6 +132,7 @@
 		449F34DA2B34411F00630052 /* RecipeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeRepository.swift; sourceTree = "<group>"; };
 		449F34DC2B34413100630052 /* IngredientRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientRepository.swift; sourceTree = "<group>"; };
 		449F35002B404C3200630052 /* ColorEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorEnum.swift; sourceTree = "<group>"; };
+		44AEB6F42B483BAB006AF58E /* SectionAddAllPizzaSizes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionAddAllPizzaSizes.swift; sourceTree = "<group>"; };
 		44C927262B0B8D4B00031B84 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		44C927282B0B8FC600031B84 /* Step.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
 		44D5EF752B207D3900DB4BC1 /* IngredientEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientEnum.swift; sourceTree = "<group>"; };
@@ -252,6 +256,7 @@
 				44D5EF7D2B20AD9500DB4BC1 /* AddIngredient.swift */,
 				443946172B27545700DC31E7 /* AddressApi.swift */,
 				443946372B29C86800DC31E7 /* AccountSettingsSheet.swift */,
+				445C4F882B480CAB00969B49 /* AddAllPizzaSizesSheet.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -351,6 +356,7 @@
 				44D5EF7F2B20BF3A00DB4BC1 /* StepComponent.swift */,
 				449F34CA2B31E01100630052 /* StepListComponent.swift */,
 				449F34D12B331F8800630052 /* SettingsContextMenuComp.swift */,
+				44AEB6F42B483BAB006AF58E /* SectionAddAllPizzaSizes.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -544,6 +550,7 @@
 				443784F42B0D2F14005BAA41 /* PizzaSizeEnum.swift in Sources */,
 				442D990C2B0385CB00A8CC5D /* AuthenticationViewModel.swift in Sources */,
 				44D5EF7C2B20A84A00DB4BC1 /* Ingredient.swift in Sources */,
+				445C4F892B480CAB00969B49 /* AddAllPizzaSizesSheet.swift in Sources */,
 				443784EC2B0CE183005BAA41 /* CategoryListViewModel.swift in Sources */,
 				443784F62B0D2F27005BAA41 /* SaladSizeEnum.swift in Sources */,
 				442D990A2B0385AB00A8CC5D /* LoginView.swift in Sources */,
@@ -552,6 +559,7 @@
 				449F34D22B331F8800630052 /* SettingsContextMenuComp.swift in Sources */,
 				443784F22B0D0032005BAA41 /* RecipeForCategoryView.swift in Sources */,
 				44D5EF7E2B20AD9500DB4BC1 /* AddIngredient.swift in Sources */,
+				44AEB6F52B483BAB006AF58E /* SectionAddAllPizzaSizes.swift in Sources */,
 				4433FC582B0E0AD400E2FEEB /* MenuButton.swift in Sources */,
 				443784F82B0D37C3005BAA41 /* SizeButtons.swift in Sources */,
 				443946132B2715CA00DC31E7 /* AdressesModel.swift in Sources */,

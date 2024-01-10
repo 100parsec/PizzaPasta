@@ -13,8 +13,8 @@ class RecipeRepository{
     
     private static var listener: ListenerRegistration?
     
-    static func createRecipe(category: String, title: String, steps: [Step]){
-        let recipe = Recipe(id: UUID().uuidString, category: category, title: title, steps: steps)
+    static func createRecipe(category: String, title: String, steps: [Step], size: String){
+        let recipe = Recipe(id: UUID().uuidString, category: category, title: title, steps: steps, size: size)
         do{
             try FirebaseManager.shared.database.collection("recipes").addDocument(from: recipe)
         }catch let error{

@@ -49,7 +49,9 @@ struct HomeView: View {
                 
                 RecipeForCategoryView(path: $homeviewModel.path)
                     .navigationDestination(for: Recipe.self){ recipe in
-                        RecipeDetailView(recipe: recipe, path: $homeviewModel.path).navigationBarBackButtonHidden(true)
+                        RecipeDetailView(recipe: recipe, path: $homeviewModel.path)
+                            .environmentObject(recipeViewModel)
+                            .navigationBarBackButtonHidden(true)
                     }
                     .environmentObject(recipeViewModel)
             }
