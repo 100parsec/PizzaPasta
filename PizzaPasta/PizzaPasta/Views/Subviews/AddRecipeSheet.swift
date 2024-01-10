@@ -203,6 +203,13 @@ struct AddRecipeSheet: View {
                 
                 Button(action: {
                     recipeViewModel.createRecipe(category: recipeViewModel.selectedCategory.capitalized)
+                    recipeViewModel.steps = 1
+                    recipeViewModel.recipteTitle = ""
+                    recipeViewModel.stepsList.removeAll()
+                    recipeViewModel.stepsList26.removeAll()
+                    recipeViewModel.stepsList32.removeAll()
+                    recipeViewModel.stepsList40.removeAll()
+                    recipeViewModel.stepsList50.removeAll()
                     close()
                     
                 }, label: {
