@@ -167,11 +167,20 @@ struct AddRecipeSheet: View {
                         }
                     }
                     
-                    if recipeViewModel.stepsList26.count > 0{
+                    if recipeViewModel.stepsList26.count > 0 || recipeViewModel.stepsList.count > 0{
                         VStack{
-                            ForEach(recipeViewModel.stepsList26, id: \.id){ ingredient in
-                                StepListComponent(ingredient: ingredient)
+                            
+                            if recipeViewModel.selectedCategory == "Pizza"{
+                                ForEach(recipeViewModel.stepsList26, id: \.id){ ingredient in
+                                    StepListComponent(ingredient: ingredient)
+                                }
+                            } else{
+                                ForEach(recipeViewModel.stepsList, id: \.id){ ingredient in
+                                    StepListComponent(ingredient: ingredient)
+                                }
                             }
+                            
+                            
                         }
                     }
                 }
