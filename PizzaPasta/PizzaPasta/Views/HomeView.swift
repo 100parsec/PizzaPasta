@@ -9,6 +9,8 @@ import SwiftUI
 
 struct HomeView: View {
     
+    //HAT GEKLAPPT
+    
     @EnvironmentObject var authenicationViewModel: AuthenticationViewModel
     @StateObject var homeviewModel = HomeViewModel()
     @StateObject var recipeViewModel = RecipeViewModel()
