@@ -24,12 +24,16 @@ struct HomeView: View {
                         .padding(.top, 20)
                 }
                 
-                if authenicationViewModel.user?.role == StringValues.roleCentral{
-                    
-                    SettingsContextMenuComp()
-                        .environmentObject(homeviewModel)
-                    
-                }
+                SettingsContextMenuComp(role: authenicationViewModel.user?.role ?? "")
+                    .environmentObject(homeviewModel)
+                    .environmentObject(authenicationViewModel)
+                
+//                if authenicationViewModel.user?.role == StringValues.roleCentral{
+//                    
+//                    SettingsContextMenuComp()
+//                        .environmentObject(homeviewModel)
+//                    
+//                }
             }
             .frame(width: 200)
             .background(Color(red: 0.49, green: 0.591, blue: 0.581))
@@ -47,7 +51,7 @@ struct HomeView: View {
             
             NavigationStack(path: $homeviewModel.path) {
                 
-                RecipeForCategoryView(path: $homeviewModel.path)
+                RecipeForCategoryView(path: $homeviewModel.path, role: authenicationViewModel.user?.role ?? "")
                     .navigationDestination(for: Recipe.self){ recipe in
                         RecipeDetailView(recipe: recipe, path: $homeviewModel.path)
                             .environmentObject(recipeViewModel)
@@ -58,6 +62,9 @@ struct HomeView: View {
             
         }
         .scrollIndicators(.hidden)
+        .onDisappear{
+            recipeViewModel.removeListener()
+        }
     }
     
 

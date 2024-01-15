@@ -52,7 +52,7 @@ struct StepComponent: View {
             .clipShape(RoundedRectangle(cornerRadius: 10))
             
             VStack{
-                Image(systemName: icon)
+                Image("cheeseCreamSauce")
             }
             .frame(width: 50, height: 60)
             .background(Color.ppRed)

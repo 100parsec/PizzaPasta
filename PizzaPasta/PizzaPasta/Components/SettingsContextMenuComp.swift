@@ -10,13 +10,23 @@ import SwiftUI
 struct SettingsContextMenuComp: View {
     
     @EnvironmentObject var homeviewModel: HomeViewModel
+    @EnvironmentObject var authViewModel: AuthenticationViewModel
+    
+    var role: String
     
     var body: some View {
         Menu() {
             
+            if role == StringValues.roleCentral {
+                Button(StringValues.addRecipies, action: homeviewModel.showRecipeSheet)
+                Button(StringValues.accountSettings, action: homeviewModel.showAccountSheet)
+                //Button("Registrieren", action: homeviewModel.showAccountSheet)
+                Button("Logout", action: authViewModel.logout)
+            } else {
+                Button("Logout", action: authViewModel.logout)
+            }
             
-            Button(StringValues.addRecipies, action: homeviewModel.showRecipeSheet)
-            Button(StringValues.accountSettings, action: homeviewModel.showAccountSheet)
+            
         }label: {
             Image(systemName: StringValues.iconElipses)
                 .resizable()
@@ -31,5 +41,5 @@ struct SettingsContextMenuComp: View {
 }
 
 #Preview {
-    SettingsContextMenuComp()
+    SettingsContextMenuComp(role: "")
 }

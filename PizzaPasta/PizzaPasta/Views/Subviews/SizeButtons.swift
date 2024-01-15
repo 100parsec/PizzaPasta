@@ -11,13 +11,19 @@ struct SizeButtons: View {
     
     @EnvironmentObject var recipeVM: RecipeViewModel
     @State var category = StringValues.pizza
+    @Binding var recipe: Recipe
+    
+    var pizzaTitle: String
     
     var body: some View {
         
         if category == StringValues.pizza{
             HStack {
                 Button(action: {
-                    recipeVM.fetchPizza(size: "26")
+                    print("\(pizzaTitle)")
+                    recipeVM.fetchPizzaByNameAndSize(size: "26", title: pizzaTitle)
+                    recipe = recipeVM.recipes.first ?? Recipe(id: "", category: "", title: "", steps: [Step(id: "", step: 0, ingredient: Ingredient(id: "", category: "", name: "", icon: ""), unit: "", value: 0.0)])
+                    print("debug")
                 }, label: {
                     Text(PizzaSizeEnum.sizeOne.sizes)
                         .font(.title)
@@ -32,7 +38,9 @@ struct SizeButtons: View {
                 .padding(.top, 10)
                 
                 Button(action: {
-                    recipeVM.fetchPizza(size: "32")
+                    recipeVM.fetchPizzaByNameAndSize(size: "32", title: pizzaTitle)
+                    recipe = recipeVM.recipes.first ?? Recipe(id: "", category: "", title: "", steps: [Step(id: "", step: 0, ingredient: Ingredient(id: "", category: "", name: "", icon: ""), unit: "", value: 0.0)])
+                    print(recipeVM.recipes.count)
                 }, label: {
                     Text(PizzaSizeEnum.sizeTwo.sizes)
                         .font(.title)
@@ -116,6 +124,6 @@ struct SizeButtons: View {
     }
 }
 
-#Preview {
-    SizeButtons()
-}
+//#Preview {
+//    SizeButtons()
+//}

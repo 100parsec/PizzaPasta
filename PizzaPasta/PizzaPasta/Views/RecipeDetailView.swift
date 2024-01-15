@@ -9,7 +9,9 @@ import SwiftUI
 
 struct RecipeDetailView: View {
     
-    var recipe = Recipe(id: "", category: "", title: "", steps: [Step(id: "", step: 1, ingredient: Ingredient(id: "", category: "", name: "", icon: ""), unit: "", value: 0.0)])
+    @State var recipe = Recipe(id: "", category: "", title: "", steps: [Step(id: "", step: 1, ingredient: Ingredient(id: "", category: "", name: "", icon: ""), unit: "", value: 0.0)])
+    
+    
     
     
     //TODO beim speichern auf groß- kleinschreibung achten
@@ -32,9 +34,9 @@ struct RecipeDetailView: View {
         VStack{
             HStack{
                 if recipe.category == StringValues.pizza{
-                    SizeButtons(category: StringValues.pizza)
+                    SizeButtons(category: StringValues.pizza, recipe: $recipe, pizzaTitle: recipe.title)
                 } else if recipe.category == StringValues.salad{
-                    SizeButtons(category: StringValues.salad)
+                    SizeButtons(category: StringValues.salad, recipe: $recipe, pizzaTitle: recipe.title)
                 }
                 
                 Spacer()
@@ -61,7 +63,7 @@ struct RecipeDetailView: View {
                 HStack(){
                     LazyHGrid(rows: rows, alignment: .top, spacing: -4){
                         ForEach(recipe.steps, id: \.id){ i in
-                            StepComponent(step: "\(i.step)", icon: "fork.knife", ingredient: i.ingredient.name, value: "\(i.value)", unit: i.unit)
+                            StepComponent(step: "\(i.step)", icon: "mais", ingredient: i.ingredient.name, value: "\(i.value)", unit: i.unit)
                                 .padding(.top, 15)
                                 .padding(.leading, 10)
                         }

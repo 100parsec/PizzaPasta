@@ -14,14 +14,14 @@ class RecipeRepository{
     private static var listener: ListenerRegistration?
     
     static func createRecipe(category: String, title: String, steps: [Step], size: String){
-        let recipe = Recipe(id: UUID().uuidString, category: category, title: title, steps: steps, size: size)
-        do{
-            try FirebaseManager.shared.database.collection("recipes").addDocument(from: recipe)
-        }catch let error{
-            print("Error save data into databse: ", error.localizedDescription)
-            //lieber firebase log
+            let recipe = Recipe(id: UUID().uuidString, category: category, title: title, steps: steps, size: size)
+            do{
+                try FirebaseManager.shared.database.collection("recipes").addDocument(from: recipe)
+            }catch let error{
+                print("Error save data into databse: ", error.localizedDescription)
+                //lieber firebase log
+            }
         }
-    }
     
     static func deleteRecipe(with id: String){
         

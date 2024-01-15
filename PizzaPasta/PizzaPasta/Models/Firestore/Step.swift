@@ -14,4 +14,5 @@ struct Step: Codable, Identifiable{
     var ingredient: Ingredient
     var unit: String
     var value: Double
+    var size: String?
 }

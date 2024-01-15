@@ -52,6 +52,7 @@ class RecipeViewModel: ObservableObject{
     func createRecipe(category: String){
         
         
+        
         if selectedCategory == "Pizza"{
             RecipeRepository.createRecipe(category: category, title: self.recipteTitle, steps: self.stepsList26, size: "26")
             RecipeRepository.createRecipe(category: category, title: self.recipteTitle, steps: self.stepsList32, size: "32")
@@ -87,6 +88,25 @@ class RecipeViewModel: ObservableObject{
             }
     }
     
+    func fetchPizzaByNameAndSize(size: String, title: String){
+        FirebaseManager.shared.database.collection("recipes").whereField("size", isEqualTo: size).whereField("title", isEqualTo: title)
+            .addSnapshotListener{ querySnapshot, error in
+                if let error{
+                    print("error fetching recipes: ", error.localizedDescription)
+                    return
+                }
+                
+                guard let documents = querySnapshot?.documents else {
+                    print("error loading \(self.selectedCategory) from database")
+                    return
+                }
+                
+                self.recipes = documents.compactMap{ queryDocumentSnapshot -> Recipe? in
+                    return try? queryDocumentSnapshot.data(as: Recipe.self)
+                }
+            }
+    }
+    
     func fetchPizza(size: String){
         FirebaseManager.shared.database.collection("recipes").whereField("size", isEqualTo: size)
             .addSnapshotListener{ querySnapshot, error in
@@ -104,6 +124,10 @@ class RecipeViewModel: ObservableObject{
                     return try? queryDocumentSnapshot.data(as: Recipe.self)
                 }
             }
+    }
+    
+    func removeListener(){
+        self.listener?.remove()
     }
     
     func createIngredient(category: String, name: String, icon: String){
